@@ -20,7 +20,7 @@ def login():
     return render_template('account.html', full_name=record)
 
 def sanya():
-    print('Санек лох')
+    print('Хуем полбу не дало???')
 
 if __name__ == "__main__":
     app.run(debug=True)
