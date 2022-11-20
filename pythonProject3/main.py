@@ -21,7 +21,7 @@ def login():
 
 
 def vanya():
-    print('Ваня красавчик')
+    print('Саня красавчик')
 
 if __name__ == "__main__":
     app.run(debug=True)
