@@ -3,7 +3,7 @@ import psycopg2
 
 app = Flask(__name__)
 
-conn = psycopg2.connect(dbname = 'postgres', user = 'postgres', password = '123', host = '192.168.1.103', port = '5432')
+conn = psycopg2.connect(dbname = 'postgres', user = 'postgres', password = '123', host = '25.66.55.215', port = '5432')
 cursor = conn.cursor()
 
 
@@ -18,9 +18,6 @@ def login():
     cursor.execute('SELECT * from test')
     record = cursor.fetchall()
     return render_template('account.html', full_name=record)
-
-def sanya():
-    print('Хуем полбу не дало???')
 
 if __name__ == "__main__":
     app.run(debug=True)
