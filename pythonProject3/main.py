@@ -19,8 +19,6 @@ def login():
     record = cursor.fetchall()
     return render_template('account.html', full_name=record)
 
-def sanya():
-    print('Хуем полбу не дало???')
 
 def vanya():
     print('Ваня красавчик')
