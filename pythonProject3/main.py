@@ -1,26 +1,39 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, g
 import psycopg2
+from FDataBasa import FDataBase
 
 app = Flask(__name__)
 
-conn = psycopg2.connect(dbname = 'postgres', user = 'postgres', password = '123', host = '25.66.55.215', port = '5432')
-cursor = conn.cursor()
+def connect_db():
+    """Соединяемся с БД"""
+    conn = psycopg2.connect(dbname='postgres', user='postgres', password='123', host='25.66.55.215', port='5432')
+    return conn
+
+def get_db():
+    """Возвращаем объект с БД"""
+    if not hasattr(g, '_database'):
+        g._database = connect_db()
+    return g._database
 
 
-@app.route('/', methods = ['POST', 'GET'])
+dbase = None
+@app.before_request
+def before_request():
+    """Соединение с БД перед выполнением запроса"""
+    global dbase
+    db = get_db()
+    dbase = FDataBase(db)
+
+@app.teardown_appcontext
+def close_db(error):
+    """"ЗАКРЫВАЕМ соединение с БД"""
+    if hasattr(g, '_database'):
+        g._database.close()
+
+@app.route('/')
 def login():
-    if request.form.get('lol'):
-        id = request.form.get('id')
-        name = request.form.get('name')
-        if id and name:
-            cursor.execute("""INSERT INTO test(id,name) values(%s,'%s')""" % (id,name))
-            conn.commit()
-    cursor.execute('SELECT * from test')
-    record = cursor.fetchall()
-    return render_template('account.html', full_name=record)
+    return render_template('account.html', full_name = dbase.menu())
 
-def sanya_vanya():
-    print('Мы красавчики')
 
 
 if __name__ == "__main__":
