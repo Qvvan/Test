@@ -1,0 +1,299 @@
+.storage {
+  background: linear-gradient(107.56deg, #6ABFB5 0%, rgba(0, 0, 0, 0.8) 63.66%);
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.left {
+  width: 12%;
+
+  .logo {
+    width: 140px;
+    height: 60px;
+    margin: 40px 30px;
+    background: #fff;
+  }
+}
+
+.right {
+  width: 88%;
+}
+
+.sidebar {
+  background: #fff;
+  padding: 35px 20px 0 20px;
+  border-radius: 0 40px 0 0;
+  height: 100vh;
+  &__list {
+    padding: 140px 0;
+    background: 0 0;
+    &-item {
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: 70px;
+      }
+      &.active {
+        position: relative;
+        &::after {
+          position: absolute;
+          content: '';
+          width: calc(100% + 40px);
+          height: 70px;
+          right: -20px;
+          top: -20px;
+          z-index: 1;
+          border-radius: 20px 0 0 20px;
+          background: #416F6A;
+        }
+      }
+    }
+  }
+  &-button {
+    width: 100%;
+    height: 30px;
+    background: #c0c0c0;
+    box-shadow: 0px 4px 4px rgba(79, 79, 79, 0.25);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: background .2s ease-in-out;
+    &:hover {
+      background: #b6b5b5;
+    }
+  }
+  .account {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #000;
+    padding: 0 0 15px 15px;
+    &-username {
+      display: block;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 100%;
+    }
+    &-login {
+      display: block;
+      font-family: "Comfortaa", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+    }
+    svg {
+      margin-right: 20px;
+    }
+  }
+}
+
+.dashboard {
+  background-color: #fff;
+  border-radius: 40px 40px 0 0;
+  margin: 140px 30px 0 45px;
+  height: 100vh;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 50px;
+  }
+  &__buttons {
+    display: flex;
+    align-items: center;
+  }
+  &__single-button {
+    width: 175px;
+    height: 45px;
+    background: #C0C0C0;
+    box-shadow: 0px 4px 4px rgba(79, 79, 79, 0.25);
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 100%;
+    color: #000;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    &:hover {
+      background: #b6b5b5;
+    }
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+  &__interactive {
+    display: flex;
+  }
+  &__search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-right: 60px;
+    span {
+      font-family: "Comfortaa", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 100%;
+      color: #000;
+      margin-right: 25px;
+    }
+    &-button {
+      background: transparent;
+      border: none;
+      svg {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+    }
+    &-input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translate(4px, 2px);
+      width: 192px;
+      height: 18px;
+      background: #FFFFFF;
+      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 5px;
+      position: relative;
+      padding: 0 5px;
+      font-family: "Comfortaa", sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 100%;
+      &:focus {
+        outline: none;
+      }
+    }
+    div {
+      border-radius: 5px;
+      background: #D9D9D9;
+      width: 200px;
+      height: 22px;
+    }
+  }
+  &__sort {
+    display: flex;
+    align-items: center;
+    span {
+      font-family: "Comfortaa", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 100%;
+      color: #000;
+      margin-right: 25px;
+    }
+    .__select {
+      position: relative;
+      width: 200px;
+      height: 22px;
+      background: #D9D9D9;
+      border-radius: 5px;
+
+      &[data-state="active"] {
+        .__select__content {
+          opacity: 1;
+        }
+        .__select__label + .__select__input + .__select__label {
+          max-height: 22px;
+        }
+      }
+      .button-select {
+        position: absolute;
+        right: 5px;
+        top: 0;
+        transform: translateY(3px);
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
+        width: 16px;
+        height: 16px;
+        background: #fff;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        svg {
+          position: absolute;
+          left: 4px;
+          top: 6px;
+          fill: #e0e0e0;
+          filter: drop-shadow(inset 0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+      }
+    }
+    .__select__title {
+      position: absolute;
+      left: 4px;
+      top: 2px;
+      display: flex;
+      align-items: center;
+      width: 170px;
+      height: 18px;
+      padding: 0 5px;
+      font-family: "Comfortaa", sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 100%;
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+    .__select__content {
+      position: absolute;
+      top: calc(100% - 1px);
+      left: 4px;
+      display: flex;
+      flex-direction: column;
+      width: calc(100% - 8px);
+      background-color: #ffffff;
+      border: 1px solid #D9D9D9;
+      border-top: none;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+
+      transition: all 0.3s ease-out;
+      overflow: hidden;
+      opacity: 0;
+      z-index: 8;
+    }
+    .__select__input {
+      display: none;
+
+      &:checked + label {
+        background-color: #D9D9D9;
+        pointer-events: none;
+      }
+      &:disabled + label {
+        opacity: 0.6;
+        pointer-events: none;
+      }
+    }
+    .__select__label {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 40px;
+      max-height: 0;
+      padding: 0 5px;
+      font-family: "Comfortaa", sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 100%;
+      transition: all 0.2s ease-out;
+      cursor: pointer;
+      overflow: hidden;
+      z-index: -2;
+      & + input + & {
+        border-top: 0 solid #C7CCD160;
+      }
+      &:hover {
+        background-color: #e9e9e9 !important;
+      }
+    }
+  }
+}

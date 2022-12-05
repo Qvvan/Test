@@ -1,0 +1,103 @@
+// <label class="custom-checkbox">
+//   <input class="custom-checkbox__input" type="checkbox" name="name">
+//   <span class="custom-checkbox__field"></span>
+//   <span class="custom-checkbox__content">Landing Page Design</span>
+// </label>
+
+@mixin custom-checkbox {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  -webkit-user-select: none;
+  user-select: none;
+  &__input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: absolute;
+  }
+  &__field {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--secondary);
+    border-radius: 2px;
+  }
+  &__content {
+    padding-left: 35px;
+  }
+}
+
+.custom-checkbox__input:checked + .custom-checkbox__field {
+  background-image: url(../../img/main-dashboard/check.svg);
+  background-position: center;
+  background-size: 18px;
+  border: 2px solid var(--primary) !important;
+}
+
+.custom-checkbox__input:focus-visible + .custom-checkbox__field {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.custom-checkbox__input:disabled + .custom-checkbox__field {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+// <label class="toggle">
+//   <input class="toggle-checkbox" type="checkbox">
+//   <div class="toggle-switch"></div>
+//   <span class="toggle-label">...</span>
+// </label>
+
+.toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 22px;
+}
+.toggle-switch {
+  background: #E0E5F2;
+  border-radius: 40px;
+  width: 36px;
+  height: 18px;
+  position: relative;
+  transition: background ease-in-out 0.25s;
+}
+.toggle-switch:before, .toggle-switch:after {
+  content: "";
+}
+.toggle-switch:before {
+  display: inline-block;
+  background: #fff;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left ease-in-out 0.25s;
+}
+.toggle-checkbox:checked + .toggle-switch {
+  background: var(--primary);
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 20px;
+}
+.toggle-checkbox {
+  position: absolute;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.toggle-label {
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  color: var(--main);
+}

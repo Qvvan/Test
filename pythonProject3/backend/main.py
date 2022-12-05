@@ -1,8 +1,8 @@
-from flask import Flask, render_template, url_for, request, redirect, g
-import psycopg2
+from flask import Flask, render_template, g, jsonify
 from FDataBasa import FDataBase
+import psycopg2
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../frontend/app', static_folder='../frontend/app/static')
 
 def connect_db():
     """Соединяемся с БД"""
@@ -32,8 +32,14 @@ def close_db(error):
 
 @app.route('/')
 def login():
-    return render_template('account.html', full_name = dbase.menu())
+    # return render_template('./../frontend/app/index.html', full_name = dbase.menu())
+    return render_template('index.html')
 
+@app.route('/add', methods = ['GET'])
+def add():
+    # return render_template('./../frontend/app/index.html', full_name = dbase.menu())
+    print(dbase.menu())
+    return jsonify(dbase.menu())
 
 
 if __name__ == "__main__":
