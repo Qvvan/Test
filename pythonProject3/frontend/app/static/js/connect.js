@@ -34,3 +34,5 @@
     });
   })
 }, 1000);
+
+fetch('/add').then(response => response.json()).then(data => console.log(data));

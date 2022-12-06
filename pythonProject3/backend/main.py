@@ -1,9 +1,12 @@
 from flask import Flask, render_template, g, jsonify
 from FDataBasa import FDataBase
 import psycopg2
+from cashbox import cashbox
 
 app = Flask(__name__, template_folder='../frontend/app', static_folder='../frontend/app/static')
 
+
+app.register_blueprint(cashbox, url_prefix = '/cashbox')
 def connect_db():
     """Соединяемся с БД"""
     conn = psycopg2.connect(dbname='postgres', user='postgres', password='123', host='25.66.55.215', port='5432')
@@ -38,7 +41,6 @@ def login():
 @app.route('/add', methods = ['GET'])
 def add():
     # return render_template('./../frontend/app/index.html', full_name = dbase.menu())
-    print(dbase.menu())
     return jsonify(dbase.menu())
 
 
