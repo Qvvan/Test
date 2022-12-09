@@ -49,9 +49,7 @@
           <div class="dashboard__tabs"></div>
           <div class="dashboard__header">
             <div class="dashboard__buttons">
-              <button class="dashboard__single-button add">Добавить</button>
-              <button class="dashboard__single-button edit">Изменить</button>
-              <button class="dashboard__single-button delete">Удалить</button>
+              <button class="dashboard__single-button discard">Списать</button>
             </div>
             <div class="dashboard__interactive">
               <div class="dashboard__search">
@@ -93,18 +91,38 @@
             </div>
           </div>
           <div class="dashboard__main">
-            <table class="main__table">
-             <tr class="header__tr">
-               <th>№</th>
-               <th>Наименование</th>
-               <th>Артикул</th>
-               <th>Удиница</th>
-               <th>Количество</th>
-               <th>Закупка</th>
-               <th>Реализация</th>
-               <th>Контрагент</th>
-             </tr>
-           </table>
+            <div class="table">
+              <div class="table__header">
+                <span>№</span>
+                <span>Наименование</span>
+                <span>Артикул</span>
+                <span>Единица</span>
+                <span>Количество
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span>Закупка
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span>Реализация
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span>Контрагент</span>
+              </div>
+              <div class="table__body">
+              </div>
+            </div>
           </div>
         </div>
       </div>

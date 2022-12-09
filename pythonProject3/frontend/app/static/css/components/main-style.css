@@ -27,27 +27,10 @@ a {
   text-decoration: none;
 }
 
-.site-container {
-  overflow: hidden;
-}
-
-.btn-reset {
-  border: none;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-}
-
 .list-reset {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.container {
-  margin: 0 auto;
-  padding: 0 var(--container-offset);
-  max-width: var(--container-width);
 }
 
 .storage {
@@ -55,7 +38,7 @@ a {
   display: flex;
   width: 100%;
   height: 100vh;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .left {
@@ -405,9 +388,10 @@ a {
   justify-content: center;
 }
 
-.main__table {
+.table {
   margin: 0 25px;
   width: 100%;
+  height: 100vh;
   background: #D9D9D9;
   border-radius: 10px 10px 0 0;
   border-collapse: collapse;
@@ -417,21 +401,26 @@ a {
   color: #000;
 }
 
-.header__tr {
+.table__header, .table__row {
+  display: grid;
+  grid-template-columns: 50px minmax(250px, 1fr) repeat(6, minmax(120px, 1fr));
   height: 44px;
-  font-weight: 700;
-}
-
-.main__tr {
-  height: 44px;
-  
-}
-
-.main__table th {
-  text-align: center;
+  align-items: center;
   position: relative;
 }
-.main__table th:not(:last-child)::after {
+
+.table__header::after, .table__row::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 3px;
+  width: calc(100% - 6px);
+  height: 1px;
+  background: #eeeeee;
+  border-radius: 100px;
+}
+
+.table__header span:not(:last-child)::after, .table__row span:not(:last-child)::after {
   content: '';
   position: absolute;
   top: 3px;
@@ -442,21 +431,20 @@ a {
   border-radius: 100px;
 }
 
-.main__table td {
-  text-align: center;
-}
-
-.main__table tbody {
+.table__header span, .table__row span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
   position: relative;
+  padding: 0 7px 0 15px;
 }
 
-.main__table tbody::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 3px;
-  width: calc(100% - 6px);
-  height: 1px;
-  background: #eeeeee;
-  border-radius: 100px;
+.table__header span svg, .table__row span svg {
+  cursor: pointer;
+}
+
+.table__header span:not(:first-child), .table__row span:not(:first-child) {
+  padding-left: 25px;
 }
