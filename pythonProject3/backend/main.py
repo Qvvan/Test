@@ -1,4 +1,4 @@
-from flask import Flask, render_template, g, jsonify
+from flask import Flask, render_template, g, jsonify, request
 from FDataBasa import FDataBase
 import psycopg2
 from cashbox import cashbox
@@ -33,7 +33,7 @@ def close_db(error):
     if hasattr(g, '_database'):
         g._database.close()
 
-@app.route('/')
+@app.route('/', methods = ['GET'])
 def login():
     # return render_template('./../frontend/app/index.html', full_name = dbase.menu())
     return render_template('index.html')
