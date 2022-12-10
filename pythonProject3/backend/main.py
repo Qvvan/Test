@@ -38,9 +38,11 @@ def login():
     # return render_template('./../frontend/app/index.html', full_name = dbase.menu())
     return render_template('index.html')
 
-@app.route('/add', methods = ['GET'])
+@app.route('/add', methods = ['GET', 'POST'])
 def add():
-    # return render_template('./../frontend/app/index.html', full_name = dbase.menu())
+    if request.method == 'POST':
+        print(request.get_json())
+        return {'ok': 'qwd'}
     return jsonify(dbase.menu())
 
 

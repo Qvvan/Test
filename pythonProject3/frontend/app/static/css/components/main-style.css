@@ -175,7 +175,7 @@ a {
 }
 
 .discard__modal {
-  display: block;
+  display: none;
   position: absolute;
   top: 120%;
   left: 0;

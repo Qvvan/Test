@@ -36,3 +36,12 @@ selectSingle.forEach((el) => {
     });
   }
 });
+
+document.querySelector('.dashboard__single-button').addEventListener('click', () => {
+  document.querySelector('.discard__modal').style.display = 'block';
+});
+
+document.querySelector('.btn__modal-decision.cancel').addEventListener('click', () => {
+  document.querySelector('.discard__modal').style.display = 'none';
+});
+  

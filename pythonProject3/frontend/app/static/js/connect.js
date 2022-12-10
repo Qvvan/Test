@@ -5,11 +5,27 @@ const getUsers = async () => {
       return data;
     }
 }
+const postUsers = async (content) => {
+    let response = await fetch('/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+          },
+        body: JSON.stringify(content)
+    });
+    let data = await response.json();
+    return data;
+    // if (response.ok) {
+    //   let data = await response.json();
+    //   return data;
+    // }
+}
 
-const buttonAdd = document.querySelector('.dashboard__single-button.discard')
+document.querySelector('.btn__modal-decision.ok')
     .addEventListener('click', (e) => {
-
-   });
+        const asd = document.querySelector('.name__block-input').value;
+        postUsers(asd).then(asdaad => console.log(asdaad));
+    });
 
 getUsers()
     .then((data) => {
