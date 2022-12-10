@@ -14,15 +14,36 @@ const buttonAdd = document.querySelector('.dashboard__single-button.discard')
 getUsers()
     .then((data) => {
         const table = document.querySelector('.table');
-        const tableRow = document.createElement('div');
-        tableRow.classList.add('table__row')
-        for (let j = 0; j < 3; j++) {
-            for (let i = 0; i < 8; i++) {
+        
+        for (let j = 0; j < data.length; j++) {
+            const tableRow = document.createElement('div');
+            tableRow.classList.add('table__row');
+
+            for (let i = 0; i < data[j].length; i++) {
                 const cell = document.createElement('span');
                 cell.textContent = data[j][i];
                 tableRow.appendChild(cell);
             }
+            table.appendChild(tableRow);
         }
-        table.appendChild(tableRow);
         console.log(data);
     })
+
+
+
+
+// getUsers()
+//     .then((data) => {
+//         const table = document.querySelector('.table');
+//         const tableRow = document.createElement('div');
+//         tableRow.classList.add('table__row')
+//         for (let j = 0; j < 3; j++) {
+//             for (let i = 0; i < 8; i++) {
+//                 const cell = document.createElement('span');
+//                 cell.textContent = data[j][i];
+//                 tableRow.appendChild(cell);
+//             }
+//         }
+//         table.appendChild(tableRow);
+//         console.log(data);
+//     })
