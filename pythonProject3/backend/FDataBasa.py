@@ -4,7 +4,8 @@ class FDataBase:
         self.__cursor = db.cursor()
 
     def menu(self):
-        quest = 'SELECT * FROM test'
+        quest = 'SELECT p.id, p.name, p.code, p.unit, pm.count, p.price_purchase ,p.price_selling ' \
+                'FROM public.product_market as pm JOIN public.product p ON pm.product_id = p.id;'
         try:
             self.__cursor.execute(quest)
             res = self.__cursor.fetchall()
