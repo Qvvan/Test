@@ -1,29 +1,38 @@
-const selectSingle = document.querySelector('.__select');
-const selectSingle_title = selectSingle.querySelector('.__select__title');
-const selectSingle_labels = selectSingle.querySelectorAll('.__select__label');
-const selectButton = document.querySelector('.button-select');
+const selectSingle = document.querySelectorAll('.__select');
 
-// Toggle menu
-selectSingle_title.addEventListener('click', () => {
-  if ('active' === selectSingle.getAttribute('data-state')) {
-    selectSingle.setAttribute('data-state', '');
-  } else {
-    selectSingle.setAttribute('data-state', 'active');
-  }
-});
+selectSingle.forEach((el) => {
+  el.querySelector('.__select__title').addEventListener('click', () => {
+    if ('active' === el.getAttribute('data-state')) {
+      el.setAttribute('data-state', '');
+    } else {
+      el.setAttribute('data-state', 'active');
+    }
 
-selectButton.addEventListener('click', () => {
-  if ('active' === selectSingle.getAttribute('data-state')) {
-    selectSingle.setAttribute('data-state', '');
-  } else {
-    selectSingle.setAttribute('data-state', 'active');
-  }
-});
-
-// Close when click to option
-for (let i = 0; i < selectSingle_labels.length; i++) {
-  selectSingle_labels[i].addEventListener('click', (evt) => {
-    selectSingle_title.textContent = evt.target.textContent;
-    selectSingle.setAttribute('data-state', '');
+    el.querySelectorAll('.__select__label').forEach((element) => {
+      element.addEventListener('click', function() {
+        el.querySelector('.__select__title').textContent = this.textContent;
+        el.querySelectorAll('.__select__input').forEach((q) => {
+          q.checked = false;
+        });
+        this.querySelector('.__select__input').checked = true;
+        el.setAttribute('data-state', '');
+      });
+    })
   });
-}
+  if (el.querySelector('.button-select')) {
+    el.querySelector('.button-select').addEventListener('click', () => {
+      if ('active' === el.getAttribute('data-state')) {
+        el.setAttribute('data-state', '');
+      } else {
+        el.setAttribute('data-state', 'active');
+      }
+
+      el.querySelectorAll('.__select__label').forEach((element) => {
+        element.addEventListener('click', function() {
+          el.querySelector('.__select__title').textContent = this.textContent;
+          el.setAttribute('data-state', '');
+        });
+      })
+    });
+  }
+});

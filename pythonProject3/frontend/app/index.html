@@ -50,6 +50,134 @@
           <div class="dashboard__header">
             <div class="dashboard__buttons">
               <button class="dashboard__single-button discard">Списать</button>
+              <div class="discard__modal">
+                <p>Списание товара</p>
+                <div class="discard__modal-main">
+                  <div class="discard__modal-atributes">
+                    <div class="modal-left">
+                      <div class="name__block">
+                        <p>Наименование</p>
+                        <input class="name__block-input" type="text"/>
+                      </div>
+                      <div class="bottom__block">
+                        <div class="article__block">
+                          <p>Артикул</p>
+                          <input class="article__block-input" type="text"/>
+                        </div>
+                        <div class="type__block">
+                          <p>Тип</p>
+                          <div class="__select select-reason select-type" data-state="">
+                            <div class="__select__title select-reason-title select-type-title" data-default="Option 0">Товар</div>
+                            <div class="__select__content select-reason-content select-type-content">
+                              <label class="__select__label select-reason-label select-type-label">Товар
+                                <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                              </label>
+                              <label class="__select__label select-reason-label select-type-label">Товар
+                                <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                              </label>
+                              <label class="__select__label select-reason-label select-type-label">Услуга
+                                <input class="__select__input select-reason-input select-type-input" type="radio"/>
+                              </label>
+                            </div>
+                            <svg width="8" height="6" viewBox="0 0 8 6">
+                              <g>
+                                <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-right">
+                      <div class="name__block">
+                        <p>Уже существующий товар</p>
+                        <div class="__select select-reason" data-state="">
+                          <div class="__select__title select-reason-title" data-default="Option 0"></div>
+                          <div class="__select__content select-reason-contentnt">
+                            <label class="__select__label select-reason-label">
+                              <input class="__select__input select-reason-input" type="radio" checked/>
+                            </label>
+                            <label class="__select__label select-reason-label">что-то
+                              <input class="__select__input select-reason-input" type="radio" checked/>
+                            </label>
+                            <label class="__select__label select-reason-label">что-то ещё
+                              <input class="__select__input select-reason-input" type="radio"/>
+                            </label>
+                            <label class="__select__label select-reason-label">какой то товар...
+                              <input class="__select__input select-reason-input" type="radio"/>
+                            </label>
+                            <label class="__select__label select-reason-label">ещё один
+                              <input class="__select__input select-reason-input" type="radio"/>
+                            </label>
+                          </div>
+                          <svg width="10" height="8" viewBox="0 0 8 6">
+                            <g>
+                              <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                            </g>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="bottom__block">
+                        <div class="article__block">
+                          <p>Количество</p>
+                          <input class="article__block-input" type="text"/>
+                        </div>
+                        <div class="type__block">
+                          <p>Единицы</p>
+                          <div class="__select select-reason select-type" data-state="">
+                            <div class="__select__title select-reason-title select-type-title" data-default="Option 0">шт</div>
+                            <div class="__select__content select-reason-content select-type-content">
+                              <label class="__select__label select-reason-label select-type-label">шт
+                                <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                              </label>
+                              <label class="__select__label select-reason-label select-type-label">шт
+                                <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                              </label>
+                              <label class="__select__label select-reason-label select-type-label">кг
+                                <input class="__select__input select-reason-input select-type-input" type="radio"/>
+                              </label>
+                            </div>
+                            <svg width="8" height="6" viewBox="0 0 8 6">
+                              <g>
+                                <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="discard__modal-reason">
+                    <p>Причина списания</p>
+                    <div class="__select select-reason" data-state="">
+                      <div class="__select__title select-reason-title" data-default="Option 0"></div>
+                      <div class="__select__content select-reason-content">
+                        <label class="__select__label select-reason-label">
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect" checked/>
+                        </label>
+                        <label class="__select__label select-reason-label">По возрастанию
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect" checked/>
+                        </label>
+                        <label class="__select__label select-reason-label">По убыванию
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect"/>
+                        </label>
+                        <label class="__select__label select-reason-label">По Наименованию
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect"/>
+                        </label>
+                      </div>
+                      <svg width="10" height="8" viewBox="0 0 8 6">
+                        <g>
+                          <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="discard__modal-decision">
+                    <button class="btn__modal-decision" type="submit">ОК</button>
+                    <button class="btn__modal-decision" type="reset">Отмена</button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="dashboard__interactive">
               <div class="dashboard__search">
@@ -69,14 +197,18 @@
                   <div class="__select" data-state="">
                     <div class="__select__title" data-default="Option 0">По возрастанию</div>
                     <div class="__select__content">
-                      <input id="singleSelect0" class="__select__input" type="radio" name="singleSelect" checked />
-                      <label for="singleSelect0" class="__select__label">По возрастанию</label>
-                      <input id="singleSelect1" class="__select__input" type="radio" name="singleSelect" checked />
-                      <label for="singleSelect1" class="__select__label">По возрастанию</label>
-                      <input id="singleSelect2" class="__select__input" type="radio" name="singleSelect" />
-                      <label for="singleSelect2" class="__select__label">По убыванию</label>
-                      <input id="singleSelect3" class="__select__input" type="radio" name="singleSelect" />
-                      <label for="singleSelect3" class="__select__label">По Наименованию</label>
+                      <label class="__select__label">По возрастанию
+                        <input class="__select__input" type="radio" name="singleSelect" checked/>
+                      </label>
+                      <label class="__select__label">По возрастанию
+                        <input class="__select__input" type="radio" name="singleSelect" checked/>
+                      </label>
+                      <label class="__select__label">По убыванию
+                        <input class="__select__input" type="radio" name="singleSelect"/>
+                      </label>
+                      <label class="__select__label">По Наименованию
+                        <input class="__select__input" type="radio" name="singleSelect"/>
+                      </label>
                     </div>
                     <button class="button-select">
                       <svg width="8" height="6" viewBox="0 0 8 6">
@@ -120,8 +252,7 @@
                 </span>
                 <span>Контрагент</span>
               </div>
-              <div class="table__body">
-              </div>
+              <div class="table__body"></div>
             </div>
           </div>
         </div>
