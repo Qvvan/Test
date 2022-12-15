@@ -15,16 +15,28 @@ const postUsers = async (content) => {
     });
     let data = await response.json();
     return data;
-    // if (response.ok) {
-    //   let data = await response.json();
-    //   return data;
-    // }
 }
 
 document.querySelector('.btn__modal-decision.ok')
     .addEventListener('click', (e) => {
-        const asd = document.querySelector('.name__block-input').value;
-        postUsers(asd).then(asdaad => console.log(asdaad));
+        let name = document.querySelector('.modal-name-input').value;
+        let article = document.querySelector('.modal-article-input').value;
+        let type = document.querySelector('.select-type-title').innerText;
+        let product = document.querySelector('.select-product-title').innerText;
+        let count = document.querySelector('.modal-count-input').value;
+        let units = document.querySelector('.select-units-title').innerText;
+        let reason = document.querySelector('.modal-reason-title').innerText;
+        modalContent = {
+            'Наименование': name,
+            'Артикул': article,
+            'Тип': type,
+            'Уже существующий товар': product,
+            'Количество': count,
+            'Единицы': units,
+            'Причина списания': reason,
+        }
+        console.log(modalContent);
+        postUsers(modalContent).then(asdaad => console.log(asdaad));
     });
 
 getUsers()

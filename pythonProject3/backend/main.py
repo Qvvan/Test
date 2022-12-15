@@ -42,7 +42,7 @@ def login():
 def add():
     if request.method == 'POST':
         print(request.get_json())
-        return {'ok': 'qwd'}
+        return jsonify({'ok': 'qwd'})
     return jsonify(dbase.menu())
 
 
