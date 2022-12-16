@@ -38,18 +38,17 @@ document.querySelector('.btn__modal-decision.ok')
             'Причина списания': reason,
         }
         console.log(modalContent);
-        postUsers(modalContent).then(asdaad => console.log(asdaad));
+        postUsers(modalContent, '/add').then(asdaad => console.log(asdaad));
     });
 
 getUsers()
     .then((data) => {
         console.log(data);
-        const table = document.querySelector('.table');
+        const table = document.querySelector('.table__body');
         
         for (let j = 0; j < data.length; j++) {
             const tableRow = document.createElement('div');
             tableRow.classList.add('table__row');
-            table.appendChild(tableRow);
 
             for (let i = 0; i < Object.keys(data[j]).length; i++) {
                 const cell = document.createElement('span');

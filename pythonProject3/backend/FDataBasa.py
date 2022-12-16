@@ -21,10 +21,10 @@ class FDataBase:
     def order(self, column, order):
         self.__column = column
         self.__order = order
-        if self.order == 'Возрастание':
-            self.order = 'DESC'
-        else:
+        if self.__order == 'Возрастание':
             self.__order = 'ASC'
+        else:
+            self.__order = 'DESC'
         if self.__column == 'count':
             quest = "SELECT json_agg(json_build_object('id', p.id, 'name', p.name, 'code', p.code, 'unit', p.unit, 'count', pm.count," \
                     f"'price_purchase', p.price_purchase , 'price_selling', p.price_selling) ORDER BY pm.{self.__column} {self.__order})" \

@@ -338,8 +338,11 @@ a {
   padding: 0 7px 0 15px;
 }
 
-.table__header svg {
+.table__header span.active svg {
   transform: scale(1, -1);
+}
+
+.table__header svg {
   cursor: pointer;
 }
 
