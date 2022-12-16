@@ -42,6 +42,7 @@
               <button class="sidebar-button">Продажи</button>
             </li>
           </ul>
+          <div></div>
         </div>
       </div>
       <div class="right">
@@ -57,12 +58,12 @@
                     <div class="modal-left">
                       <div class="name__block">
                         <p>Наименование</p>
-                        <input class="name__block-input" type="text"/>
+                        <input class="name__block-input modal-name-input" type="text"/>
                       </div>
                       <div class="bottom__block">
                         <div class="article__block">
                           <p>Артикул</p>
-                          <input class="article__block-input" type="text"/>
+                          <input class="article__block-input modal-article-input" type="text"/>
                         </div>
                         <div class="type__block">
                           <p>Тип</p>
@@ -92,7 +93,7 @@
                       <div class="name__block">
                         <p>Уже существующий товар</p>
                         <div class="__select select-reason" data-state="">
-                          <div class="__select__title select-reason-title" data-default="Option 0"></div>
+                          <div class="__select__title select-reason-title select-product-title" data-default="Option 0"></div>
                           <div class="__select__content select-reason-contentnt">
                             <label class="__select__label select-reason-label">
                               <input class="__select__input select-reason-input" type="radio" checked/>
@@ -120,12 +121,12 @@
                       <div class="bottom__block">
                         <div class="article__block">
                           <p>Количество</p>
-                          <input class="article__block-input" type="text"/>
+                          <input class="article__block-input modal-count-input" type="text"/>
                         </div>
                         <div class="type__block">
                           <p>Единицы</p>
                           <div class="__select select-reason select-type" data-state="">
-                            <div class="__select__title select-reason-title select-type-title" data-default="Option 0">шт</div>
+                            <div class="__select__title select-reason-title select-type-title select-units-title" data-default="Option 0">шт</div>
                             <div class="__select__content select-reason-content select-type-content">
                               <label class="__select__label select-reason-label select-type-label">шт
                                 <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
@@ -150,7 +151,7 @@
                   <div class="discard__modal-reason">
                     <p>Причина списания</p>
                     <div class="__select select-reason" data-state="">
-                      <div class="__select__title select-reason-title" data-default="Option 0"></div>
+                      <div class="__select__title select-reason-title modal-reason-title" data-default="Option 0"></div>
                       <div class="__select__content select-reason-content">
                         <label class="__select__label select-reason-label">
                           <input class="__select__input select-reason-input" type="radio" name="singleSelect" checked/>
@@ -262,6 +263,7 @@
   </main>
   <script src="static/js/connect.js"></script>
   <script src="static/js/select-button.js"></script>
+  <script src="static/js/reaction_onclick.js"></script>
 </body>
 
 </html>
