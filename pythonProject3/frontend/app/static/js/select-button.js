@@ -1,3 +1,4 @@
+//------ открытие/зкрытие select
 const selectSingle = document.querySelectorAll('.__select');
 
 selectSingle.forEach((el) => {
@@ -19,6 +20,7 @@ selectSingle.forEach((el) => {
       });
     })
   });
+
   if (el.querySelector('.button-select')) {
     el.querySelector('.button-select').addEventListener('click', () => {
       if ('active' === el.getAttribute('data-state')) {
@@ -37,6 +39,18 @@ selectSingle.forEach((el) => {
   }
 });
 
+window.onclick = function(event) {
+  const select = document.querySelectorAll('.__select').forEach((e) => {
+    if (event.target != e.querySelector('.__select__title')) {
+      e.setAttribute('data-state', '');
+    }
+  });
+}
+
+//----- //открытие/зкрытие select ---------
+
+
+//------ открыть/закрыть модальное окно "списать" ------
 document.querySelector('.dashboard__single-button').addEventListener('click', () => {
   document.querySelector('.discard__modal').style.display = 'block';
 });
@@ -44,4 +58,4 @@ document.querySelector('.dashboard__single-button').addEventListener('click', ()
 document.querySelector('.btn__modal-decision.cancel').addEventListener('click', () => {
   document.querySelector('.discard__modal').style.display = 'none';
 });
-  
+//------ //открыть/закрыть модальное окно "списать" ------

@@ -44,12 +44,13 @@ def add():
         return jsonify('ok')
     return dbase.menu()
 
-@app.route('/order', methods = ['GET'])
+@app.route('/order', methods = ['POST'])
 def order():
     response = request.get_json()
+    print(response)
     column_ = response['Колонка']
     order_ = response['Сортировка']
-    return dbase.order(column_,order_)
+    return dbase.order(column_, order_)
 
 
 if __name__ == "__main__":

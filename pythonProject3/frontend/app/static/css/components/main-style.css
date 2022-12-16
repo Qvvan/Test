@@ -170,6 +170,8 @@ a {
   box-shadow: 0px 4px 4px rgba(79, 79, 79, 0.25);
   border: none;
   border-radius: 10px;
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 700;
   font-size: 14px;
   line-height: 100%;
   color: #000;
@@ -336,7 +338,8 @@ a {
   padding: 0 7px 0 15px;
 }
 
-.table__header span svg, .table__row span svg {
+.table__header svg {
+  transform: scale(1, -1);
   cursor: pointer;
 }
 
