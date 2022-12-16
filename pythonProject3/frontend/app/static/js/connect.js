@@ -17,6 +17,8 @@ const postUsers = async (content) => {
     return data;
 }
 
+
+
 document.querySelector('.btn__modal-decision.ok')
     .addEventListener('click', (e) => {
         let name = document.querySelector('.modal-name-input').value;
@@ -41,6 +43,7 @@ document.querySelector('.btn__modal-decision.ok')
 
 getUsers()
     .then((data) => {
+        console.log(data)
         const table = document.querySelector('.table');
         
         for (let j = 0; j < data.length; j++) {
@@ -54,5 +57,21 @@ getUsers()
             }
             table.appendChild(tableRow);
         }
-        console.log(data);
+        document.querySelector('.modal-name-input').addEventListener("input", (event) => {
+          search_item = event.target.value.toLowerCase();
+          showlist();
+        });
+        showlist = () => {
+            document.querySelector('.name-input-results').innerHTML = "";
+            data.filter((item) => {
+                return item[1].toLowerCase().includes(search_item);
+            })
+            .forEach((el) => {
+              const li = document.createElement('li');
+              li.innerHTML = `<span>${el[1]}</span>`;
+              document.querySelector('.name-input-results').appendChild(li);
+            });
+        }
     })
+
+

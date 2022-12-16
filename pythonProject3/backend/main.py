@@ -42,7 +42,14 @@ def add():
     if request.method == 'POST':
         print(request.get_json())
         return jsonify('ok')
-    return jsonify(dbase.menu())
+    return dbase.menu()
+
+@app.route('/order', methods = ['GET'])
+def order():
+    response = request.get_json()
+    column_ = response['Колонка']
+    order_ = response['Сортировка']
+    return dbase.order(column_,order_)
 
 
 if __name__ == "__main__":
