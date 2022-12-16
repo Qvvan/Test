@@ -3,7 +3,7 @@ class FDataBase:
         self.__db = db
         self.__cursor = db.cursor()
 
-    def menu(self):
+    def menu(self) -> dict:
         quest = "SELECT json_agg(json_build_object('id', p.id, 'name', p.name, 'code', p.code, 'unit', p.unit, 'count', pm.count,"\
 				"'price_purchase', p.price_purchase , 'price_selling', p.price_selling))"\
                 "FROM public.product_market as pm JOIN public.product p ON pm.product_id = p.id;"
@@ -18,7 +18,7 @@ class FDataBase:
         return []
 
 
-    def order(self, column, order):
+    def order(self, column: int, order: str) -> dict:
         self.__column = column
         self.__order = order
         if self.__order == 'Возрастание':
