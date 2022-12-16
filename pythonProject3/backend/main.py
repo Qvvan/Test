@@ -35,14 +35,13 @@ def close_db(error):
 
 @app.route('/', methods = ['GET'])
 def login():
-    # return render_template('./../frontend/app/index.html', full_name = dbase.menu())
     return render_template('index.html')
 
 @app.route('/add', methods = ['GET', 'POST'])
 def add():
     if request.method == 'POST':
         print(request.get_json())
-        return {'ok': 'qwd'}
+        return jsonify('ok')
     return jsonify(dbase.menu())
 
 
