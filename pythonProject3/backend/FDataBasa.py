@@ -5,7 +5,7 @@ class FDataBase:
 
     def menu(self) -> dict:
         quest = "SELECT json_agg(json_build_object('id', p.id, 'name', p.name, 'code', p.code, 'unit', p.unit, 'count', pm.count,"\
-				"'price_purchase', p.price_purchase , 'price_selling', p.price_selling))"\
+				"'price_purchase', p.price_purchase , 'price_selling', p.price_selling) ORDER BY p.id ASC)"\
                 "FROM public.product_market as pm JOIN public.product p ON pm.product_id = p.id;"
 
         try:
