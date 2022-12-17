@@ -43,6 +43,7 @@ document.querySelector('.btn__modal-decision.ok')
 
 getUsers()
     .then((data) => {
+        //----- заполнение при загрузке страницы таблицы значениями из сервера ----
         console.log(data);
         const table = document.querySelector('.table__body');
         
@@ -58,11 +59,27 @@ getUsers()
             }
             table.appendChild(tableRow);
         }
+        //----- //заполнение при загрузке страницы таблицы значениями из сервера ----
+
+        //----- live search -----
+        let inputResults = document.querySelector('.name-input-results');
         document.querySelector('.modal-name-input').addEventListener("input", (event) => {
-          search_item = event.target.value.toLowerCase();
-          showlist();
+
+          let search_item = event.target.value.toLowerCase();
+          showlist(search_item);
+          
+          if (inputResults.contains(document.querySelector('.name-input-results li'))) {
+            inputResults.style.display = 'block';
+          } else {
+            inputResults.style.display = 'none';
+          }
+          if (search_item == '') {
+            inputResults.style.display = 'none';
+          }
+
         });
-        function showlist() {
+        
+        function showlist(search_item) {
             document.querySelector('.name-input-results').innerHTML = "";
             data.filter((item) => {
                 return item.name.toLowerCase().includes(search_item);
@@ -73,4 +90,5 @@ getUsers()
                 document.querySelector('.name-input-results').appendChild(li);
             });
         }
+        //----- //live search -----
     })

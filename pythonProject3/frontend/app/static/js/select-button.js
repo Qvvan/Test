@@ -40,7 +40,7 @@ selectSingle.forEach((el) => {
 });
 
 window.onclick = function(event) {
-  const select = document.querySelectorAll('.__select').forEach((e) => {
+  document.querySelectorAll('.__select').forEach((e) => {
     if (event.target != e.querySelector('.__select__title')) {
       e.setAttribute('data-state', '');
     }

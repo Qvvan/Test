@@ -283,7 +283,7 @@ a {
 }
 
 .table {
-  overflow: hidden;
+  overflow: overlay;
   margin: 0 25px;
   width: 100%;
   height: 100%;
