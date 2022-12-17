@@ -17,9 +17,8 @@ document.querySelectorAll('.table__header span').forEach((el, index) => {
   let sortable = ['Убывание', 'Возрастание'];
 
   el.addEventListener('click', (e) => {
-
     let findSort;
-    console.log(el.classList);
+
     if (el.classList.contains('active')) {
       el.classList.remove('active');
       findSort = sortable[0];
@@ -28,7 +27,6 @@ document.querySelectorAll('.table__header span').forEach((el, index) => {
       findSort = sortable[1];
     }
     let findColumn = column[index];
-    
     let request = {
       'Колонка': findColumn,
       'Сортировка': findSort
@@ -37,32 +35,22 @@ document.querySelectorAll('.table__header span').forEach((el, index) => {
     postUsers(request, '/order')
       .then((data) => {
         console.log(data);
-        const table = document.querySelector('.table__body').innerHTML = '';
-
-        // for (let j = 0; j < data.length; j++) {
-        //   const tableRow = document.createElement('div');
-        //   tableRow.classList.add('table__row');
-        //   table.appendChild(tableRow);
-
-        //   for (let i = 0; i < Object.keys(data[j]).length; i++) {
-        //       const cell = document.createElement('span');
-        //       const massiv = [data[j].id, data[j].name, data[j].code, data[j].unit, data[j].count, data[j].price_purchase, data[j].price_selling];
-        //       cell.textContent = massiv[i];
-        //       tableRow.appendChild(cell);
-        //   }
-          
-        // }
+        const table = document.querySelector('.table__body');
+        while(table.firstChild){
+          table.removeChild(table.firstChild);
+        }
         for (let j = 0; j < data.length; j++) {
-
+          const tableRow = document.createElement('div');
+          tableRow.classList.add('table__row');
+          
           for (let i = 0; i < Object.keys(data[j]).length; i++) {
               const cell = document.createElement('span');
               const massiv = [data[j].id, data[j].name, data[j].code, data[j].unit, data[j].count, data[j].price_purchase, data[j].price_selling];
               cell.textContent = massiv[i];
               tableRow.appendChild(cell);
           }
-          
+          table.appendChild(tableRow);
         }
       });
-
   })
 })
