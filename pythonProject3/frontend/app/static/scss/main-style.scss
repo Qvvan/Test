@@ -307,7 +307,7 @@ a {
     align-items: center;
     position: relative;
   }
-  &__header::after, &__row:not(:last-child)::after {
+  &__header::after, &__row::after {
     content: '';
     position: absolute;
     bottom: 0;

@@ -353,7 +353,7 @@ a {
           align-items: center;
   position: relative;
 }
-.table__header::after, .table__row:not(:last-child)::after {
+.table__header::after, .table__row::after {
   content: "";
   position: absolute;
   bottom: 0;

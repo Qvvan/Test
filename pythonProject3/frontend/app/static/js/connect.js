@@ -1,3 +1,4 @@
+//------ функция апроса GET --------
 export const getUsers = async () => {
     let response = await fetch('/add');
     if (response.ok) {
@@ -5,6 +6,7 @@ export const getUsers = async () => {
       return data;
     }
 }
+//------ функция запроса POST --------
 export const postUsers = async (content, url) => {
     let response = await fetch(url, {
         method: 'POST',
@@ -17,31 +19,10 @@ export const postUsers = async (content, url) => {
     return data;
 }
 
-document.querySelector('.btn__modal-decision.ok')
-    .addEventListener('click', () => {
-        let name = document.querySelector('.name__block-input').value;
-        let article = document.querySelector('.article__block-input').value;
-        let type = document.querySelector('.select-type-title').innerText;
-        let product = document.querySelector('.select-product-title').innerText;
-        let count = document.querySelector('.modal-count-input').value;
-        let units = document.querySelector('.select-units-title').innerText;
-        let reason = document.querySelector('.modal-reason-title').innerText;
-        modalContent = {
-            'Наименование': name,
-            'Артикул': article,
-            'Тип': type,
-            'Уже существующий товар': product,
-            'Количество': count,
-            'Единицы': units,
-            'Причина списания': reason,
-        }
-        console.log(modalContent);
-        postUsers(modalContent, '/add').then(asdaad => console.log(asdaad));
-    });
-
+//----- GET запрос при загрузке страницы ----
 getUsers()
     .then((data) => {
-        //----- заполнение при загрузке страницы таблицы значениями из сервера ----
+        //----- заполнение таблицы значениями из запроса ----
         console.log(data);
         const table = document.querySelector('.table__body');
         
@@ -60,43 +41,80 @@ getUsers()
         //----- //заполнение при загрузке страницы таблицы значениями из сервера ----
 
         //----- live search -----
-
-
         document.querySelectorAll('.input__block').forEach((el) => {
             let inputResults = el.querySelector('.input__block-results');
             let inputInput = el.querySelector('.input__block-input');
             let dataAtribyte = el.dataset.input;
-
+            let saveDataStrings;
+            //----- сама функция live search ---------
             inputInput.addEventListener('input', (event) => {
 
                 let search_item = event.target.value.toLowerCase();
                 inputResults.innerHTML = "";
 
-                data.filter((item) => {
-                    return item[dataAtribyte].toLowerCase().includes(search_item);
+                let aaa = data.filter((item) => {
+                    return item[dataAtribyte].toString().toLowerCase().includes(search_item);
                 })
-                .forEach((elem) => {
-                    console.log(elem);
+                saveDataStrings = aaa;
+                aaa.forEach((elem) => {
                     const li = document.createElement('li');
                     li.innerHTML = `<span>${elem[dataAtribyte]}</span>`;
                     inputResults.appendChild(li);
                 });
                 
-                if (inputResults.contains(document.querySelector('.input__block-results li'))) {
+                if (search_item == '') {
+                    inputResults.innerHTML = "";
+                    inputResults.style.display = 'none';
+                } else 
+                if (inputResults.contains(el.querySelector('.input__block-results li'))) {
                     inputResults.style.display = 'block';
                 } else {
                     inputResults.style.display = 'none';
                 }
-                if (search_item == '') {
-                    inputResults.style.display = 'none';
-                }
             });
-
+            //----- функция автозаполнения инпутов в модальном окне ---------
             inputResults.addEventListener('click', function(event) {
-                inputInput.value = event.target.querySelector('span').textContent;
-                inputResults.style.display = 'none';
+                if (document.querySelector('.discard__modal').contains(el)) {
+
+                    inputResults.querySelectorAll('.input__block-results li').forEach((i, index) => {
+                        if (event.target == i) {
+                            document.querySelector('.discard__modal').querySelectorAll('.input__block').forEach((element) => {
+                                let datasetFill = element.dataset.input;
+
+                                element.querySelector('.input__block-input').value = saveDataStrings[index][datasetFill];
+                                inputResults.innerHTML = "";
+                                inputResults.style.display = 'none';
+                            })
+                        }
+                    })
+                }
             })
+            //----- //функция автозаполнения инпутов в модальном окне ---------
         })
-        
         //----- //live search -----
     })
+//----- //GET запрос при загрузке страницы ----
+
+
+//------ событие нажатия на кнопку 'ОК' в модалке списания ------
+document.querySelector('.btn__modal-decision.ok').addEventListener('click', () => {
+    let name = document.querySelector('.name__block-input').value;
+    let article = document.querySelector('.article__block-input').value;
+    let type = document.querySelector('.select-type-title').innerText;
+    let product = document.querySelector('.select-product-title').innerText;
+    let count = document.querySelector('.modal-count-input').value;
+    let units = document.querySelector('.select-units-title').innerText;
+    let reason = document.querySelector('.modal-reason-title').innerText;
+    modalContent = {
+        'Наименование': name,
+        'Артикул': article,
+        'Тип': type,
+        'Уже существующий товар': product,
+        'Количество': count,
+        'Единицы': units,
+        'Причина списания': reason,
+    }
+    console.log(modalContent);
+    postUsers(modalContent, '/add').then(asdaad => console.log(asdaad));
+});
+//------ //событие нажатия на кнопку 'ОК' в модалке списания ------
