@@ -17,8 +17,6 @@ export const postUsers = async (content, url) => {
     return data;
 }
 
-
-
 document.querySelector('.btn__modal-decision.ok')
     .addEventListener('click', () => {
         let name = document.querySelector('.name__block-input').value;
@@ -73,12 +71,14 @@ getUsers()
 
                 let search_item = event.target.value.toLowerCase();
                 inputResults.innerHTML = "";
+
                 data.filter((item) => {
                     return item[dataAtribyte].toLowerCase().includes(search_item);
                 })
                 .forEach((elem) => {
+                    console.log(elem);
                     const li = document.createElement('li');
-                    li.innerHTML = `<span>${elem.dataAtribyte}</span>`;
+                    li.innerHTML = `<span>${elem[dataAtribyte]}</span>`;
                     inputResults.appendChild(li);
                 });
                 
