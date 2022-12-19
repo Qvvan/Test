@@ -20,9 +20,9 @@ export const postUsers = async (content, url) => {
 
 
 document.querySelector('.btn__modal-decision.ok')
-    .addEventListener('click', (e) => {
-        let name = document.querySelector('.modal-name-input').value;
-        let article = document.querySelector('.modal-article-input').value;
+    .addEventListener('click', () => {
+        let name = document.querySelector('.name__block-input').value;
+        let article = document.querySelector('.article__block-input').value;
         let type = document.querySelector('.select-type-title').innerText;
         let product = document.querySelector('.select-product-title').innerText;
         let count = document.querySelector('.modal-count-input').value;
@@ -62,33 +62,41 @@ getUsers()
         //----- //заполнение при загрузке страницы таблицы значениями из сервера ----
 
         //----- live search -----
-        let inputResults = document.querySelector('.name-input-results');
-        document.querySelector('.modal-name-input').addEventListener("input", (event) => {
 
-          let search_item = event.target.value.toLowerCase();
-          showlist(search_item);
-          
-          if (inputResults.contains(document.querySelector('.name-input-results li'))) {
-            inputResults.style.display = 'block';
-          } else {
-            inputResults.style.display = 'none';
-          }
-          if (search_item == '') {
-            inputResults.style.display = 'none';
-          }
 
-        });
-        
-        function showlist(search_item) {
-            document.querySelector('.name-input-results').innerHTML = "";
-            data.filter((item) => {
-                return item.name.toLowerCase().includes(search_item);
-            })
-            .forEach((el) => {
-                const li = document.createElement('li');
-                li.innerHTML = `<span>${el.name}</span>`;
-                document.querySelector('.name-input-results').appendChild(li);
+        document.querySelectorAll('.input__block').forEach((el) => {
+            let inputResults = el.querySelector('.input__block-results');
+            let inputInput = el.querySelector('.input__block-input');
+            let dataAtribyte = el.dataset.input;
+
+            inputInput.addEventListener('input', (event) => {
+
+                let search_item = event.target.value.toLowerCase();
+                inputResults.innerHTML = "";
+                data.filter((item) => {
+                    return item[dataAtribyte].toLowerCase().includes(search_item);
+                })
+                .forEach((elem) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<span>${elem.dataAtribyte}</span>`;
+                    inputResults.appendChild(li);
+                });
+                
+                if (inputResults.contains(document.querySelector('.input__block-results li'))) {
+                    inputResults.style.display = 'block';
+                } else {
+                    inputResults.style.display = 'none';
+                }
+                if (search_item == '') {
+                    inputResults.style.display = 'none';
+                }
             });
-        }
+
+            inputResults.addEventListener('click', function(event) {
+                inputInput.value = event.target.querySelector('span').textContent;
+                inputResults.style.display = 'none';
+            })
+        })
+        
         //----- //live search -----
     })

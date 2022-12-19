@@ -41,7 +41,8 @@ selectSingle.forEach((el) => {
 
 window.onclick = function(event) {
   document.querySelectorAll('.__select').forEach((e) => {
-    if (event.target != e.querySelector('.__select__title')) {
+    console.log();
+    if (event.target != e.querySelector('.__select__title') && event.target != e.querySelector('.button-select')) {
       e.setAttribute('data-state', '');
     }
   });
