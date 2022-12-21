@@ -52,11 +52,42 @@ window.onclick = function(event) {
 
 
 //------ открыть/закрыть модальное окно "списать" ------
-document.querySelector('.dashboard__single-button').addEventListener('click', () => {
-  document.querySelector('.discard__modal').style.display = 'block';
-});
+document.querySelectorAll('.dashboard__single-button').forEach((element) => {
+  element.addEventListener('click', () => {
+    document.querySelectorAll('.modal').forEach((el) => {
+      el.style.display = 'none';
+    })
+    if (element.classList.contains('discard')) {
+      let discard__modal = document.querySelector('.discard__modal');
+      if (discard__modal.style.display == 'block') {
+        discard__modal.style.display = 'none';
+      } else {
+        discard__modal.style.display = 'block';
+      }
+    }
+    if (element.classList.contains('overrate')) {
+      let overrate__modal = document.querySelector('.overrate__modal');
+      if (overrate__modal.style.display == 'block') {
+        overrate__modal.style.display = 'none';
+      } else {
+        overrate__modal.style.display = 'block';
+      }
+    }
+    if (element.classList.contains('createProduct')) {
+      let createProduct__modal = document.querySelector('.overrate__modal');
+      if (overrcreateProduct__modalate__modal.style.display == 'block') {
+        createProduct__modal.style.display = 'none';
+      } else {
+        createProduct__modal.style.display = 'block';
+      }
+    }
+    
+  });
+})
+document.querySelectorAll('.modal').forEach((el) => {
+  el.querySelector('.btn__modal-decision.cancel').addEventListener('click', function(event) {
+    el.style.display = 'none';
+  })
+})
 
-document.querySelector('.btn__modal-decision.cancel').addEventListener('click', () => {
-  document.querySelector('.discard__modal').style.display = 'none';
-});
-//------ //открыть/закрыть модальное окно "списать" ------
+//------ //открыть/закрыть модальные окна "списать/переоценить/создать товар" ------

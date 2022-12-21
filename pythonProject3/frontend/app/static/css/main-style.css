@@ -204,10 +204,10 @@ a {
 .dashboard__single-button:not(:last-child) {
   margin-right: 30px;
 }
-.dashboard .discard__modal {
+.dashboard .modal {
   display: none;
   position: absolute;
-  top: 120%;
+  top: calc(100% + 15px);
   left: 0;
   z-index: 10;
   -webkit-box-shadow: 0px 4px 4px rgba(79, 79, 79, 0.25);
@@ -217,13 +217,16 @@ a {
   background: #d9d9d9;
   padding: 20px 35px;
 }
-.dashboard .discard__modal > p {
+.dashboard .modal > p {
   display: block;
   font-family: "Comfortaa", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
   margin-bottom: 15px;
+}
+.dashboard .modal.overrate__modal {
+  left: 205px;
 }
 .dashboard .dashboard__interactive {
   display: -webkit-box;
@@ -402,7 +405,7 @@ a {
   overflow: overlay;
 }
 .table__body::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
   background-color: transparent;
 }
 .table__body::-webkit-scrollbar-thumb {

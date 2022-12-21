@@ -62,7 +62,6 @@ document.querySelectorAll('.table__header span').forEach((el, index) => {
           }
         });
     }
-    
   })
 })
 //------ //сортировка по нажатию на svg -------

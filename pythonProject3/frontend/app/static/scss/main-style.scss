@@ -181,10 +181,10 @@ a {
     }
   }
   
-  .discard__modal {
+  .modal {
     display: none;
     position: absolute;
-    top: 120%;
+    top: calc(100% + 15px);
     left: 0;
     z-index: 10;
     box-shadow: 0px 4px 4px rgba(79, 79, 79, 0.25);
@@ -199,6 +199,9 @@ a {
       font-size: 14px;
       line-height: 16px;
       margin-bottom: 15px;
+    }
+    &.overrate__modal {
+      left: 205px;
     }
   }
   .dashboard__interactive {
@@ -347,7 +350,7 @@ a {
     height: calc(100vh - 314px);
     overflow: overlay;
     &::-webkit-scrollbar {
-      width: 10px;
+      width: 8px;
       background-color: transparent;
     }
     &::-webkit-scrollbar-thumb {

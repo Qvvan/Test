@@ -41,11 +41,38 @@ getUsers()
         //----- //заполнение при загрузке страницы таблицы значениями из сервера ----
 
         //----- live search -----
-        document.querySelectorAll('.input__block').forEach((el) => {
+        document.querySelectorAll('.name__block, .article__block').forEach((el) => {
             let inputResults = el.querySelector('.input__block-results');
             let inputInput = el.querySelector('.input__block-input');
             let dataAtribyte = el.dataset.input;
             let saveDataStrings;
+            
+            //------ выпадающий список в Инпуте name --------
+            if (el.querySelector('svg')) {
+                el.querySelector('svg').addEventListener('click', function(e) {
+                    if (inputResults.style.display == 'block') {
+                        inputResults.innerHTML = "";
+                        inputResults.style.display = 'none'
+                    } else {
+                        let search_item = inputInput.value.toLowerCase();
+                        let aaa = data.filter((item) => {
+                            return item[dataAtribyte].toString().toLowerCase().includes(search_item);
+                        })
+                        saveDataStrings = aaa;
+                        aaa.forEach((elem) => {
+                            const li = document.createElement('li');
+                            li.innerHTML = `<span>${elem[dataAtribyte]}</span>`;
+                            inputResults.appendChild(li);
+                        });
+                        inputResults.style.display = 'block';
+                        if (aaa.length == 0) {
+                            inputResults.style.display = 'none';
+                        }
+                    }
+                })
+            }
+            //------ //выпадающий список в Инпуте name --------
+
             //----- сама функция live search ---------
             inputInput.addEventListener('input', (event) => {
 
@@ -71,6 +98,7 @@ getUsers()
                 } else {
                     inputResults.style.display = 'none';
                 }
+                
             });
             //----- функция автозаполнения инпутов в модальном окне ---------
             inputResults.addEventListener('click', function(event) {
@@ -78,10 +106,9 @@ getUsers()
 
                     inputResults.querySelectorAll('.input__block-results li').forEach((i, index) => {
                         if (event.target == i) {
-                            document.querySelector('.discard__modal').querySelectorAll('.input__block').forEach((element) => {
+                            document.querySelector('.discard__modal').querySelectorAll('.name__block, .article__block').forEach((element) => {
                                 let datasetFill = element.dataset.input;
                                 idSave = saveDataStrings[index].id;
-                                console.log(saveDataStrings[index].id);
                                 element.querySelector('.input__block-input').value = saveDataStrings[index][datasetFill];
                                 inputResults.innerHTML = "";
                                 inputResults.style.display = 'none';
@@ -101,8 +128,8 @@ getUsers()
 document.querySelector('.btn__modal-decision.ok').addEventListener('click', () => {
     let name = document.querySelector('.name__block-input').value;
     let article = document.querySelector('.article__block-input').value;
-    let type = document.querySelector('.select-type-title').innerText;
-    let product = document.querySelector('.select-product-title').innerText;
+    //let type = document.querySelector('.select-type-title').innerText;
+    //let product = document.querySelector('.select-product-title').innerText;
     let count = document.querySelector('.count__block-input').value;
     let units = document.querySelector('.select-units-title').innerText;
     let reason = document.querySelector('.modal-reason-title').innerText;
@@ -110,8 +137,8 @@ document.querySelector('.btn__modal-decision.ok').addEventListener('click', () =
     let modalContent = {
         'Наименование': name,
         'Артикул': article,
-        'Тип': type,
-        'Уже существующий товар': product,
+        //'Тип': type,
+        //'Уже существующий товар': product,
         'Количество': count,
         'Единицы': units,
         'Причина списания': reason,
