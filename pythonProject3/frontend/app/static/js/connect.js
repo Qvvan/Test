@@ -19,7 +19,10 @@ export const postUsers = async (content, url) => {
     return data;
 }
 let idSave;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 22e2f41a40e6c172c8c46487244c89443db69744
 //----- GET запрос при загрузке страницы ----
 getUsers()
     .then((data) => {
@@ -52,7 +55,7 @@ getUsers()
 
                 let search_item = event.target.value.toLowerCase();
                 inputResults.innerHTML = "";
-
+                
                 let aaa = data.filter((item) => {
                     return item[dataAtribyte].toString().toLowerCase().includes(search_item);
                 })
@@ -82,6 +85,10 @@ getUsers()
                             document.querySelector('.discard__modal').querySelectorAll('.input__block').forEach((element) => {
                                 let datasetFill = element.dataset.input;
                                 idSave = saveDataStrings[index].id;
+<<<<<<< HEAD
+=======
+                                console.log(saveDataStrings[index].id);
+>>>>>>> 22e2f41a40e6c172c8c46487244c89443db69744
                                 element.querySelector('.input__block-input').value = saveDataStrings[index][datasetFill];
                                 inputResults.innerHTML = "";
                                 inputResults.style.display = 'none';
@@ -106,9 +113,16 @@ document.querySelector('.btn__modal-decision.ok').addEventListener('click', () =
     let count = document.querySelector('.count__block-input').value;
     let units = document.querySelector('.select-units-title').innerText;
     let reason = document.querySelector('.modal-reason-title').innerText;
+<<<<<<< HEAD
     let modalContent = {
         'name': name,
         'article': article,
+=======
+
+    let modalContent = {
+        'Наименование': name,
+        'Артикул': article,
+>>>>>>> 22e2f41a40e6c172c8c46487244c89443db69744
         'Тип': type,
         'Уже существующий товар': product,
         'count': count,
