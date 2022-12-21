@@ -55,7 +55,7 @@ class FDataBase:
                         quest = f'UPDATE public.product_market SET count = {int(res) - int(count)} WHERE product_id = {id}'
                         self.__cursor.execute(quest)
                         self.__db.commit()
-                        return 'Okay'
+                        return self.menu()
                 except:
                     return 'Внутреняя ошибка'
             else:

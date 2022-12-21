@@ -139,9 +139,9 @@ document.querySelector('.btn__modal-decision.ok').addEventListener('click', () =
     let modalContent = {
         'Наименование': name,
         'Артикул': article,
-        'Тип': type,
-        'Уже существующий товар': product,
-        'Количество': count,
+        //'Тип': type,
+        //'Уже существующий товар': product,
+        'count': count,
         'Единицы': units,
         'Причина списания': reason,
         'id': idSave
