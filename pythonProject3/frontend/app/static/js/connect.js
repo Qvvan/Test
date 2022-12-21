@@ -18,6 +18,7 @@ export const postUsers = async (content, url) => {
     let data = await response.json();
     return data;
 }
+let idSave;
 
 //----- GET запрос при загрузке страницы ----
 getUsers()
@@ -80,7 +81,7 @@ getUsers()
                         if (event.target == i) {
                             document.querySelector('.discard__modal').querySelectorAll('.input__block').forEach((element) => {
                                 let datasetFill = element.dataset.input;
-
+                                idSave = saveDataStrings[index].id;
                                 element.querySelector('.input__block-input').value = saveDataStrings[index][datasetFill];
                                 inputResults.innerHTML = "";
                                 inputResults.style.display = 'none';
@@ -102,17 +103,18 @@ document.querySelector('.btn__modal-decision.ok').addEventListener('click', () =
     let article = document.querySelector('.article__block-input').value;
     let type = document.querySelector('.select-type-title').innerText;
     let product = document.querySelector('.select-product-title').innerText;
-    let count = document.querySelector('.modal-count-input').value;
+    let count = document.querySelector('.count__block-input').value;
     let units = document.querySelector('.select-units-title').innerText;
     let reason = document.querySelector('.modal-reason-title').innerText;
-    modalContent = {
-        'Наименование': name,
-        'Артикул': article,
+    let modalContent = {
+        'name': name,
+        'article': article,
         'Тип': type,
         'Уже существующий товар': product,
-        'Количество': count,
+        'count': count,
         'Единицы': units,
         'Причина списания': reason,
+        'id': idSave
     }
     console.log(modalContent);
     postUsers(modalContent, '/add').then(asdaad => console.log(asdaad));
