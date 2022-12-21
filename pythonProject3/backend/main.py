@@ -40,8 +40,9 @@ def login():
 @app.route('/add', methods = ['GET', 'POST'])
 def add():
     if request.method == 'POST':
-        print(request.get_json())
-        return jsonify('ok')
+        response = request.get_json()
+        print(response)
+        print(dbase.spisanie(response))
     return dbase.menu()
 
 @app.route('/order', methods = ['POST'])
