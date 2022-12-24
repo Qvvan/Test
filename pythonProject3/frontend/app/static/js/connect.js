@@ -150,8 +150,7 @@ document.querySelector('.discard__modal .btn__modal-decision.ok').addEventListen
     }
     console.log(modalContent);
     postUsers(modalContent, '/storage_list').then((data) => {
-        console.log(data);
-        fillTable(data);
+        fillTable(data[0]);
     });
 });
 //------ //событие нажатия на кнопку 'ОК' в модалке списания ------
