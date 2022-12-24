@@ -228,6 +228,9 @@ label:has(.__select__input:disabled) {
 .input__block-input:focus {
   outline: none;
 }
+.input__block-input:disabled {
+  background: #ebebeb;
+}
 
 .middle__block {
   display: -webkit-box;

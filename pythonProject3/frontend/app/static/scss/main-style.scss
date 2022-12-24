@@ -53,6 +53,7 @@ a {
 
 .right {
   width: 100%;
+  position: relative;
 }
 
 .sidebar {
@@ -148,6 +149,45 @@ a {
   background-color: #fff;
   border-radius: 40px 40px 0 0;
   margin: 140px 30px 0 45px;
+  &__tabs {
+    position: absolute;
+    bottom: calc(100% - 140px);
+    left: 100px;
+    z-index: 10;
+    display: flex;
+    &-single {
+      width: 150px;
+      height: 40px;
+      background: rgba($color: #fff, $alpha: 0.5);
+      border-radius: 30px 10px 0 0;
+      font-family: "Comfortaa", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s ease-in-out;
+      &:hover {
+        background: #fff;
+      }
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+      &.active {
+        background: #fff;
+      }
+    }
+  }
+  &.all {
+    display: block;
+  }
+  &.shipment {
+    display: none;
+  }
+  &.history {
+    display: none;
+  }
   &__header {
     display: flex;
     align-items: center;
@@ -203,6 +243,13 @@ a {
     &.overrate__modal {
       left: 205px;
     }
+    &.createProduct__modal {
+      left: 410px;
+      width: 400px;
+      .oldPrice__block, .newPrice__block {
+        width: 150px;
+      }
+    }
   }
   .dashboard__interactive {
     display: flex;
@@ -211,7 +258,6 @@ a {
     display: flex;
     align-items: center;
     position: relative;
-    margin-right: 60px;
     & span {
       font-family: "Comfortaa", sans-serif;
       font-size: 14px;
@@ -236,39 +282,27 @@ a {
       left: 0;
       top: 0;
       transform: translate(4px, 2px);
-      width: 192px;
-      height: 18px;
+      width: 292px;
+      height: 24px;
       background: #FFFFFF;
       box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
       border: none;
-      border-radius: 5px;
+      border-radius: 10px;
       position: relative;
       padding: 0 5px;
       font-family: "Comfortaa", sans-serif;
       font-weight: 700;
-      font-size: 12px;
+      font-size: 14px;
       line-height: 100%;
     }
     &-input:focus {
       outline: none;
     }
     & div {
-      border-radius: 5px;
+      border-radius: 10px;
       background: #D9D9D9;
-      width: 200px;
-      height: 22px;
-    }
-  }
-  .dashboard__sort {
-    display: flex;
-    align-items: center;
-    & span {
-      font-family: "Comfortaa", sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 100%;
-      color: #000;
-      margin-right: 25px;
+      width: 300px;
+      height: 28px;
     }
   }
   .dashboard__main {
@@ -305,7 +339,7 @@ a {
   }
   &__header, &__row {
     display: grid;
-    grid-template-columns: 50px minmax(250px, 1fr) repeat(6, minmax(120px, 1fr));
+    grid-template-columns: 50px minmax(250px, 1fr) repeat(5, minmax(120px, 1fr));
     height: 44px;
     align-items: center;
     position: relative;

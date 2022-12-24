@@ -1,6 +1,8 @@
+import {fillTable} from './functions.js';
+
 //------ функция апроса GET --------
-export const getUsers = async () => {
-    let response = await fetch('/add');
+export const getUsers = async (url) => {
+    let response = await fetch(url);
     if (response.ok) {
       let data = await response.json();
       return data;
@@ -21,24 +23,10 @@ export const postUsers = async (content, url) => {
 let idSave;
 
 //----- GET запрос при загрузке страницы ----
-getUsers()
+getUsers('/add')
     .then((data) => {
         //----- заполнение таблицы значениями из запроса ----
-        console.log(data);
-        const table = document.querySelector('.table__body');
-        
-        for (let j = 0; j < data.length; j++) {
-            const tableRow = document.createElement('div');
-            tableRow.classList.add('table__row');
-
-            for (let i = 0; i < Object.keys(data[j]).length; i++) {
-                const cell = document.createElement('span');
-                const massiv = [data[j].id, data[j].name, data[j].code, data[j].unit, data[j].count, data[j].price_purchase, data[j].price_selling];
-                cell.textContent = massiv[i];
-                tableRow.appendChild(cell);
-            }
-            table.appendChild(tableRow);
-        }
+        fillTable(data);
         //----- //заполнение при загрузке страницы таблицы значениями из сервера ----
 
         //----- live search -----
@@ -75,45 +63,63 @@ getUsers()
             //------ //выпадающий список в Инпуте name --------
 
             //----- сама функция live search ---------
-            inputInput.addEventListener('input', (event) => {
+            if (document.querySelector('.discard__modal').contains(el) || document.querySelector('.overrate__modal').contains(el)) {
+                inputInput.addEventListener('input', (event) => {
 
-                let search_item = event.target.value.toLowerCase();
-                inputResults.innerHTML = "";
-                
-                let aaa = data.filter((item) => {
-                    return item[dataAtribyte].toString().toLowerCase().includes(search_item);
-                })
-                saveDataStrings = aaa;
-                aaa.forEach((elem) => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<span>${elem[dataAtribyte]}</span>`;
-                    inputResults.appendChild(li);
-                });
-                
-                if (search_item == '') {
+                    let search_item = event.target.value.toLowerCase();
                     inputResults.innerHTML = "";
-                    inputResults.style.display = 'none';
-                } else 
-                if (inputResults.contains(el.querySelector('.input__block-results li'))) {
-                    inputResults.style.display = 'block';
-                } else {
-                    inputResults.style.display = 'none';
-                }
-                
-            });
-            //----- функция автозаполнения инпутов в модальном окне ---------
+                    
+                    let aaa = data.filter((item) => {
+                        return item[dataAtribyte].toString().toLowerCase().includes(search_item);
+                    })
+                    saveDataStrings = aaa;
+                    aaa.forEach((elem) => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<span>${elem[dataAtribyte]}</span>`;
+                        inputResults.appendChild(li);
+                    });
+                    
+                    if (search_item == '') {
+                        inputResults.innerHTML = "";
+                        inputResults.style.display = 'none';
+                    } else 
+                    if (inputResults.contains(el.querySelector('.input__block-results li'))) {
+                        inputResults.style.display = 'block';
+                    } else {
+                        inputResults.style.display = 'none';
+                    }
+                });
+            }
+            
+            //----- функция автозаполнения инпутов в модальных окнах ---------
             inputResults.addEventListener('click', function(event) {
+                //----- модалка списания ---------
                 if (document.querySelector('.discard__modal').contains(el)) {
-
                     inputResults.querySelectorAll('.input__block-results li').forEach((i, index) => {
                         if (event.target == i) {
                             document.querySelector('.discard__modal').querySelectorAll('.name__block, .article__block').forEach((element) => {
                                 let datasetFill = element.dataset.input;
                                 idSave = saveDataStrings[index].id;
-                                console.log(saveDataStrings[index].id);
                                 element.querySelector('.input__block-input').value = saveDataStrings[index][datasetFill];
                                 inputResults.innerHTML = "";
                                 inputResults.style.display = 'none';
+                            })
+                        }
+                    })
+                //----- модалка переоценки ---------
+                } else if (document.querySelector('.overrate__modal').contains(el)) {
+                    inputResults.querySelectorAll('.input__block-results li').forEach((i, index) => {
+                        if (event.target == i) {
+                            document.querySelector('.overrate__modal').querySelectorAll('.name__block, .article__block, .count__block, .oldPrice__block').forEach((element) => {
+                                let datasetFill = element.dataset.input;
+                                idSave = saveDataStrings[index].id;
+                                console.log(saveDataStrings[index][datasetFill]);
+                                element.querySelector('.input__block-input').value = saveDataStrings[index][datasetFill];
+                                inputResults.innerHTML = "";
+                                inputResults.style.display = 'none';
+                            })
+                            document.querySelector('.overrate__modal').querySelectorAll('.count__block, .oldPrice__block').forEach((element) => {
+                                element.querySelector('.input__block-input').disabled = true;
                             })
                         }
                     })
@@ -130,8 +136,6 @@ getUsers()
 document.querySelector('.btn__modal-decision.ok').addEventListener('click', () => {
     let name = document.querySelector('.name__block-input').value;
     let article = document.querySelector('.article__block-input').value;
-    //let type = document.querySelector('.select-type-title').innerText;
-    //let product = document.querySelector('.select-product-title').innerText;
     let count = document.querySelector('.count__block-input').value;
     let units = document.querySelector('.select-units-title').innerText;
     let reason = document.querySelector('.modal-reason-title').innerText;
@@ -139,8 +143,6 @@ document.querySelector('.btn__modal-decision.ok').addEventListener('click', () =
     let modalContent = {
         'Наименование': name,
         'Артикул': article,
-        //'Тип': type,
-        //'Уже существующий товар': product,
         'count': count,
         'Единицы': units,
         'Причина списания': reason,
@@ -148,22 +150,7 @@ document.querySelector('.btn__modal-decision.ok').addEventListener('click', () =
     }
     console.log(modalContent);
     postUsers(modalContent, '/add').then((data) => {
-        
-        const table = document.querySelector('.table__body');
-        table.innerHTML = "";
-        
-        for (let j = 0; j < data.length; j++) {
-            const tableRow = document.createElement('div');
-            tableRow.classList.add('table__row');
-
-            for (let i = 0; i < Object.keys(data[j]).length; i++) {
-                const cell = document.createElement('span');
-                const massiv = [data[j].id, data[j].name, data[j].code, data[j].unit, data[j].count, data[j].price_purchase, data[j].price_selling];
-                cell.textContent = massiv[i];
-                tableRow.appendChild(cell);
-            }
-            table.appendChild(tableRow);
-        }
+        fillTable(data);
     });
 });
 //------ //событие нажатия на кнопку 'ОК' в модалке списания ------
