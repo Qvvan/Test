@@ -9,7 +9,7 @@ app = Flask(__name__, template_folder='../frontend/app', static_folder='../front
 app.register_blueprint(cashbox, url_prefix = '/cashbox')
 def connect_db():
     """Соединяемся с БД"""
-    conn = psycopg2.connect(dbname='market', user='postgres', password='123', host='localhost', port='5432')
+    conn = psycopg2.connect(dbname='market', user='postgres', password='123', host='25.38.66.49', port='5432')
     return conn
 
 def get_db():
@@ -37,7 +37,7 @@ def close_db(error):
 def login():
     return render_template('index.html')
 
-@app.route('/add', methods = ['GET', 'POST'])
+@app.route('/storage_list', methods = ['GET', 'POST'])
 def add():
     if request.method == 'POST':
         response = request.get_json()
