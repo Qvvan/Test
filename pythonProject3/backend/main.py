@@ -37,7 +37,7 @@ def close_db(error):
 def login():
     return render_template('index.html')
 
-@app.route('/add', methods = ['GET', 'POST'])
+@app.route('/storage_list', methods = ['GET', 'POST'])
 def add():
     if request.method == 'POST':
         response = request.get_json()

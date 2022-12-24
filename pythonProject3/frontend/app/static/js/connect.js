@@ -23,7 +23,7 @@ export const postUsers = async (content, url) => {
 let idSave;
 
 //----- GET запрос при загрузке страницы ----
-getUsers('/add')
+getUsers('/storage_list')
     .then((data) => {
         //----- заполнение таблицы значениями из запроса ----
         fillTable(data);
@@ -133,7 +133,7 @@ getUsers('/add')
 
 
 //------ событие нажатия на кнопку 'ОК' в модалке списания ------
-document.querySelector('.btn__modal-decision.ok').addEventListener('click', () => {
+document.querySelector('.discard__modal .btn__modal-decision.ok').addEventListener('click', () => {
     let name = document.querySelector('.name__block-input').value;
     let article = document.querySelector('.article__block-input').value;
     let count = document.querySelector('.count__block-input').value;
@@ -149,7 +149,8 @@ document.querySelector('.btn__modal-decision.ok').addEventListener('click', () =
         'id': idSave
     }
     console.log(modalContent);
-    postUsers(modalContent, '/add').then((data) => {
+    postUsers(modalContent, '/storage_list').then((data) => {
+        console.log(data);
         fillTable(data);
     });
 });
