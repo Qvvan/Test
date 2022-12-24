@@ -134,11 +134,11 @@ getUsers('/storage_list')
 
 //------ событие нажатия на кнопку 'ОК' в модалке списания ------
 document.querySelector('.discard__modal .btn__modal-decision.ok').addEventListener('click', () => {
-    let name = document.querySelector('.name__block-input').value;
-    let article = document.querySelector('.article__block-input').value;
-    let count = document.querySelector('.count__block-input').value;
-    let units = document.querySelector('.select-units-title').innerText;
-    let reason = document.querySelector('.modal-reason-title').innerText;
+    let name = document.querySelector('.discard__modal .name__block-input').value;
+    let article = document.querySelector('.discard__modal .article__block-input').value;
+    let count = document.querySelector('.discard__modal .count__block-input').value;
+    let units = document.querySelector('.discard__modal .select-units-title').innerText;
+    let reason = document.querySelector('.discard__modal .modal-reason-title').innerText;
 
     let modalContent = {
         'Наименование': name,
@@ -154,3 +154,18 @@ document.querySelector('.discard__modal .btn__modal-decision.ok').addEventListen
     });
 });
 //------ //событие нажатия на кнопку 'ОК' в модалке списания ------
+
+
+document.querySelector('.overrate__modal .btn__modal-decision.ok').addEventListener('click', () => {
+    let new__price = document.querySelector('.overrate__modal .new__price-input').value;
+
+    let modalContent = {
+        'Новая цена': new__price,
+        'id': idSave
+    }
+    console.log(modalContent);
+    postUsers(modalContent, '/storage_list').then((data) => {
+        fillTable(data[0]);
+        
+    });
+});
