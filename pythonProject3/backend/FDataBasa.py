@@ -46,23 +46,23 @@ class FDataBase:
         quest = f'SELECT count FROM public.product_market WHERE product_id = {id}'
         self.__cursor.execute(quest)
         res = self.__cursor.fetchone()[0]
-        if res:
+        if res >= 0:
             if count.isdecimal():
                 try:
                     if int(count) > int(res):
                         print('На складе меньше товара, чем вы хотите убрать')
-                        return 'На складе меньше товара, чем вы хотите убрать'
+                        return 'На складе меньше товара, чем вы хотите списать.'
                     else:
                         quest = f'UPDATE public.product_market SET count = {int(res) - int(count)} WHERE product_id = {id}'
                         self.__cursor.execute(quest)
                         self.__db.commit()
-                        return self.menu()
+                        return 'Списание выполнено'
                 except:
                     print('Внутреняя ошибка')
-                    return 'Внутреняя ошибка'
+                    return 'Ошибка подключения к Базе данных'
             else:
-                print('Количетсво введено неправильно')
-                return 'Количетсво введено неправильно'
+                print('Количетсво введено неверено')
+                return 'Количетсво введено неверно'
         else:
-            print('Товар либо пуст, либо не найден')
-            return 'Товар либо пуст, либо не найден'
+            print('Товар не найден')
+            return 'Товар не найден'
