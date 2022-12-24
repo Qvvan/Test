@@ -187,9 +187,9 @@ document.querySelector('.createProduct__modal .btn__modal-decision.ok').addEvent
         'price_purchase': price_purchase,
         'price_selling': price_selling
     }
-    
+
     console.log(modalContent);
-    postUsers(modalContent, '/overrate').then((data) => {
+    postUsers(modalContent, '/add').then((data) => {
         console.log(data);
         fillTable(data[0]);
     });
