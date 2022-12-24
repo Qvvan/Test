@@ -68,7 +68,7 @@ class FDataBase:
         """Функция переоценки товара"""
         id = response['id']
         price_selling = response['Новая цена']
-        if id and price_selling:
+        if id and int(price_selling) >= 0:
             try:
                 quest = f'UPDATE public.product SET price_selling = {price_selling} WHERE id = {id}'
                 self.__cursor.execute(quest)

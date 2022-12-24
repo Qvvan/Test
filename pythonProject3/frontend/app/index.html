@@ -57,7 +57,7 @@
               <button class="dashboard__single-button discard">Списать</button>
               <button class="dashboard__single-button overrate">Переоценить</button>
               <button class="dashboard__single-button createProduct">Создать товар</button>
-              <div class="modal discard__modal">
+              <form class="modal discard__modal">
                 <p>Списание товара</p>
                 <div class="modal-main">
                   <div class="input__block name__block" data-input="name">
@@ -140,8 +140,8 @@
                     <button class="btn__modal-decision cancel" type="reset">Отмена</button>
                   </div>
                 </div>
-              </div>
-              <div class="modal overrate__modal">
+              </form>
+              <form class="modal overrate__modal">
                 <p>Переоценить товар</p>
                 <div class="modal-main">
                   <div class="input__block name__block" data-input="name">
@@ -203,19 +203,19 @@
                     <button class="btn__modal-decision cancel" type="reset">Отмена</button>
                   </div>
                 </div>
-              </div>
-              <div class="modal createProduct__modal">
+              </form>
+              <form class="modal createProduct__modal">
                 <p>Создать товар</p>
                 <div class="modal-main">
                   <div class="input__block name__block" data-input="name">
                     <p>Наименование</p>
-                    <input class="input__block-input name__block-input" type="text"/>
+                    <input class="input__block-input name__block-input" type="text" required="required"/>
                     <ul class="input__block-results" style="display: none;"></ul>
                   </div>
                   <div class="middle__block">
                     <div class="input__block article__block" data-input="code">
                       <p>Артикул</p>
-                      <input class="input__block-input article__block-input" type="text"/>
+                      <input class="input__block-input article__block-input" type="text" required="required" pattern=""/>
                       <ul class="input__block-results"></ul>
                     </div>
                     <div class="type__block">
@@ -244,11 +244,11 @@
                   <div class="price__block">
                     <div class="input__block oldPrice__block" data-input="price_selling">
                       <p>Закупка за ед.</p>
-                      <input class="input__block-input old__price-input" type="text"/>
+                      <input class="input__block-input old__price-input" type="text" required="required"/>
                     </div>
                     <div class="input__block newPrice__block" data-input="newPrice">
                       <p>Реализация за ед.</p>
-                      <input class="input__block-input new__price-input" type="text"/>
+                      <input class="input__block-input new__price-input" type="text" required="required"/>
                     </div>
                   </div>
                   <div class="modal-decision">
@@ -256,7 +256,7 @@
                     <button class="btn__modal-decision cancel" type="reset">Отмена</button>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
             <div class="dashboard__interactive">
               <div class="dashboard__search">
