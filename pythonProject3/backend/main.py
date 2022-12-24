@@ -47,10 +47,15 @@ def add():
 @app.route('/order', methods = ['POST'])
 def order():
     response = request.get_json()
-    print(response)
     column_ = response['Колонка']
     order_ = response['Сортировка']
     return dbase.order(column_, order_)
+
+
+@app.route('/overrate', methods = ['POST'])
+def overrate():
+    response = request.get_json()
+    return jsonify(dbase.overrate(response))
 
 
 if __name__ == "__main__":

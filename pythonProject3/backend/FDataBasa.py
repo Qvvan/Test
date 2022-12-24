@@ -39,7 +39,7 @@ class FDataBase:
         return {}
 
 
-    def spisanie(self, response: dict):
+    def spisanie(self, response: dict) -> (dict, str):
         """Функция списания товара"""
         count = response['count']
         id = response['id']
@@ -57,8 +57,24 @@ class FDataBase:
                         self.__db.commit()
                         return self.menu(), 'Списание выполнено'
                 except:
-                    return self.menu(), 'Ошибка подключения к Базе данных'
+                    return 'Ошибка подключения к Базе данных'
             else:
                 return self.menu(), 'Количетсво введено неверно'
         else:
             return self.menu(), 'Товар не найден'
+
+
+    def overrate(self, response: dict) -> (dict, str):
+        """Функция переоценки товара"""
+        id = response['id']
+        price_selling = response['Новая цена']
+        if id and price_selling:
+            try:
+                quest = f'UPDATE public.product SET price_selling = {price_selling} WHERE id = {id}'
+                self.__cursor.execute(quest)
+                self.__db.commit()
+                return self.menu(), 'Все гуд'
+            except:
+                print("Ошибка подключения к Базе данных")
+        else:
+            return self.menu(), 'Ошибка'
