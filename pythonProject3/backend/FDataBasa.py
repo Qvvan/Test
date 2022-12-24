@@ -91,7 +91,7 @@ class FDataBase:
         data_start = "now()::timestamp"
         data_end = "now()::timestamp + interval '0.6 years'"
         quest = f"INSERT INTO public.product (name, unit, code, price_purchase, price_selling, data_start, data_end, category_id)" \
-                f"VALUES({name}, {units}, {article}, {price_purchase}, {price_selling}, {data_start}, {data_end}, {category_id})"
+                f"VALUES('{name}', '{units}', '{article}', {price_purchase}, {price_selling}, {data_start}, {data_end}, {category_id})"
         try:
             self.__cursor.execute(quest)
             self.__db.commit()
