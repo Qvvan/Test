@@ -50,19 +50,15 @@ class FDataBase:
             if count.isdecimal():
                 try:
                     if int(count) > int(res):
-                        print('На складе меньше товара, чем вы хотите убрать')
-                        return 'На складе меньше товара, чем вы хотите списать.'
+                        return self.menu(), 'На складе меньше товара, чем вы хотите списать.'
                     else:
                         quest = f'UPDATE public.product_market SET count = {int(res) - int(count)} WHERE product_id = {id}'
                         self.__cursor.execute(quest)
                         self.__db.commit()
-                        return 'Списание выполнено'
+                        return self.menu(), 'Списание выполнено'
                 except:
-                    print('Внутреняя ошибка')
-                    return 'Ошибка подключения к Базе данных'
+                    return self.menu(), 'Ошибка подключения к Базе данных'
             else:
-                print('Количетсво введено неверено')
-                return 'Количетсво введено неверно'
+                return self.menu(), 'Количетсво введено неверно'
         else:
-            print('Товар не найден')
-            return 'Товар не найден'
+            return self.menu(), 'Товар не найден'
