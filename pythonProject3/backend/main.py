@@ -38,7 +38,7 @@ def login():
     return render_template('index.html')
 
 @app.route('/storage_list', methods = ['GET', 'POST'])
-def add():
+def storage_list():
     if request.method == 'POST':
         response = request.get_json()
         return jsonify(dbase.spisanie(response))
@@ -56,6 +56,11 @@ def order():
 def overrate():
     response = request.get_json()
     return jsonify(dbase.overrate(response))
+
+@app.route('/add', methods = ['POST'])
+def add():
+    response = request.get_json()
+    return jsonify(dbase.add(response))
 
 
 if __name__ == "__main__":

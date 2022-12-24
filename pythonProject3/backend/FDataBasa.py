@@ -97,5 +97,6 @@ class FDataBase:
             self.__db.commit()
             return 'Все гуд'
         except:
+            return 'Ошибка с бд'
             print('Ошибка с базой данных')
 
