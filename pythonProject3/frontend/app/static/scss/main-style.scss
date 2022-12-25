@@ -250,6 +250,35 @@ a {
         width: 150px;
       }
     }
+    &__popup {
+      position: absolute;
+      bottom: -2px;
+      left: 135px;
+      z-index: 1;
+      width: 240px;
+      height: 36px;
+      opacity: 0;
+      background: #fff;
+      color: #000;
+      font-family: "Comfortaa", sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      border: 2px solid #04ab5dba;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      transition: all .2s ease-in-out;
+      &.create {
+        left: 50%;
+        top: calc(100% + 20px);
+        transform: translateX(-50%);
+      }
+      &.negative {
+        border: 2px solid #d4391eba;
+      }
+    }
   }
   .dashboard__interactive {
     display: flex;

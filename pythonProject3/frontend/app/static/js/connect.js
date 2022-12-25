@@ -1,4 +1,4 @@
-import {fillTable} from './functions.js';
+import {fillTable, viewPopup} from './functions.js';
 
 //------ функция апроса GET --------
 export const getUsers = async (url) => {
@@ -113,7 +113,6 @@ getUsers('/storage_list')
                             document.querySelector('.overrate__modal').querySelectorAll('.name__block, .article__block, .count__block, .oldPrice__block').forEach((element) => {
                                 let datasetFill = element.dataset.input;
                                 idSave = saveDataStrings[index].id;
-                                console.log(saveDataStrings[index][datasetFill]);
                                 element.querySelector('.input__block-input').value = saveDataStrings[index][datasetFill];
                                 inputResults.innerHTML = "";
                                 inputResults.style.display = 'none';
@@ -151,6 +150,7 @@ document.querySelector('.discard__modal .btn__modal-decision.ok').addEventListen
     console.log(modalContent);
     postUsers(modalContent, '/storage_list').then((data) => {
         fillTable(data[0]);
+        viewPopup(data[1], '.discard__modal');
     });
 });
 //------ //событие нажатия на кнопку 'ОК' в модалке списания ------
@@ -165,8 +165,8 @@ document.querySelector('.overrate__modal .btn__modal-decision.ok').addEventListe
     }
     console.log(modalContent);
     postUsers(modalContent, '/overrate').then((data) => {
-        console.log(data);
         fillTable(data[0]);
+        viewPopup(data[1], '.overrate__modal');
     });
 });
 //------ //событие нажатия на кнопку 'ОК' в модалке переоценки ------
@@ -191,7 +191,7 @@ document.querySelector('.createProduct__modal .btn__modal-decision.ok').addEvent
     console.log(modalContent);
     postUsers(modalContent, '/add').then((data) => {
         console.log(data);
-        fillTable(data[0]);
+        viewPopup(data, '.createProduct__modal');
     });
 });
 //------ //событие нажатия на кнопку 'ОК' в модалке создания товара ------

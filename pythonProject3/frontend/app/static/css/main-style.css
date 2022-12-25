@@ -284,6 +284,43 @@ a {
 .dashboard .modal.createProduct__modal .oldPrice__block, .dashboard .modal.createProduct__modal .newPrice__block {
   width: 150px;
 }
+.dashboard .modal__popup {
+  position: absolute;
+  bottom: -2px;
+  left: 135px;
+  z-index: 1;
+  width: 240px;
+  height: 36px;
+  opacity: 0;
+  background: #fff;
+  color: #000;
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  border: 2px solid rgba(4, 171, 93, 0.7294117647);
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.dashboard .modal__popup.create {
+  left: 50%;
+  top: calc(100% + 20px);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.dashboard .modal__popup.negative {
+  border: 2px solid rgba(212, 57, 30, 0.7294117647);
+}
 .dashboard .dashboard__interactive {
   display: -webkit-box;
   display: -ms-flexbox;

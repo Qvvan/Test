@@ -70,12 +70,12 @@ class FDataBase:
         """Функция переоценки товара"""
         id = response['id']
         price_selling = response['Новая цена']
-        if id and price_selling >= 0:
+        if id and int(price_selling) >= 0:
             try:
                 quest = f'UPDATE public.product SET price_selling = {price_selling} WHERE id = {id}'
                 self.__cursor.execute(quest)
                 self.__db.commit()
-                return self.menu(), 'Все гуд'
+                return self.menu(), 'Товар переоценён'
             except:
                 print("Ошибка подключения к Базе данных")
         else:
@@ -90,18 +90,17 @@ class FDataBase:
         category_id = 1
         data_start = "now()::timestamp"
         data_end = "now()::timestamp + interval '0.6 years'"
-        quest = f"INSERT INTO public.product (name, unit, code, price_purchase, price_selling, data_start, data_end, category_id)" \
-<<<<<<< HEAD
+        quest = f"INSERT INTO public.product (name, unit, code, price_purchase, price_selling, date_start, date_end, category_id)" \
                 f"VALUES('{name}', '{units}', '{article}', {price_purchase}, {price_selling}, {data_start}, {data_end}, {category_id})"
-=======
-                f"VALUES({name}, {units}, {article}, {price_purchase}, {price_selling}, {data_start}, {data_end}, {category_id})"
         print(quest)
->>>>>>> 916cf05c5eb752b7c8d239c8241fccba5bddde82
+
         try:
             self.__cursor.execute(quest)
             self.__db.commit()
-            return 'Все гуд'
+            print('Все гуд')
+            return 'Товар создан'
         except:
-            return 'Ошибка с бд'
             print('Ошибка с базой данных')
+            return 'Ошибка с бд'
+            
 

@@ -17,3 +17,30 @@ export function fillTable (data) {
     }
 }
 
+export function viewPopup (data, modal) {
+    let modalDecision = document.querySelector(`${modal} .modal-decision`);
+    let modalCancel = document.querySelector(`${modal} .btn__modal-decision.cancel`);
+    let modalPopup = document.createElement('div');
+    if (data == 'Списание выполнено' || data == 'Товар переоценён') {
+        modalPopup.classList.add('modal__popup');
+    } else {
+        modalPopup.classList.add('modal__popup', 'negative');
+    }
+    if (data === 'Товар создан') {
+        modalPopup.classList.remove('modal__popup', 'negative');
+        modalPopup.classList.add('modal__popup', 'create');
+    } else {
+        modalPopup.classList.add('modal__popup', 'create', 'negative');
+    }
+    modalPopup.textContent = data;
+    modalDecision.insertBefore(modalPopup, modalCancel);
+    setTimeout(() => {
+        modalPopup.style.opacity = 1;
+    }, 0)
+    setTimeout(() => {
+        modalPopup.style.opacity = 0;
+    }, 2000)
+    setTimeout(() => {
+        modalPopup.remove();
+    }, 2200)
+}

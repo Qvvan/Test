@@ -140,8 +140,9 @@ label:has(.__select__input:disabled) {
 .modal-decision {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 15px;
+  position: relative;
 }
 .btn__modal-decision {
   display: block;
@@ -156,9 +157,6 @@ label:has(.__select__input:disabled) {
   border: none;
   border-radius: 10px;
   transition: all .2s ease-in-out;
-  &:not(:last-child) {
-    margin-right: 30px;
-  }
   &:hover {
     background: rgb(243, 242, 242);
   }

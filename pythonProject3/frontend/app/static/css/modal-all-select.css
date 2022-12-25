@@ -169,10 +169,11 @@ label:has(.__select__input:disabled) {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-top: 15px;
+  position: relative;
 }
 
 .btn__modal-decision {
@@ -190,9 +191,6 @@ label:has(.__select__input:disabled) {
   border-radius: 10px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-}
-.btn__modal-decision:not(:last-child) {
-  margin-right: 30px;
 }
 .btn__modal-decision:hover {
   background: rgb(243, 242, 242);
