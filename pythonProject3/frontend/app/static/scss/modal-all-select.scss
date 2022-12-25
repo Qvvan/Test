@@ -57,6 +57,9 @@
   background: #fff;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  &:empty {
+    border-bottom: 1px solid #d4391eba;
+  }
 }
 
 .__select__content {
@@ -188,6 +191,9 @@ label:has(.__select__input:disabled) {
     }
     &:disabled {
       background: #ebebeb;
+    }
+    &:required:invalid  {
+      border-bottom: 1px solid #d4391eba;
     }
   }
 }

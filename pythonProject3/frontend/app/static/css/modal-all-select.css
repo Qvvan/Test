@@ -66,6 +66,9 @@
           box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
+.__select__title:empty {
+  border-bottom: 1px solid rgba(212, 57, 30, 0.7294117647);
+}
 
 .__select__content {
   position: absolute;
@@ -228,6 +231,9 @@ label:has(.__select__input:disabled) {
 }
 .input__block-input:disabled {
   background: #ebebeb;
+}
+.input__block-input:required:invalid {
+  border-bottom: 1px solid rgba(212, 57, 30, 0.7294117647);
 }
 
 .middle__block {

@@ -130,28 +130,34 @@ getUsers('/storage_list')
     })
 //----- //GET запрос при загрузке страницы ----
 
-
 //------ событие нажатия на кнопку 'ОК' в модалке списания ------
 document.querySelector('.discard__modal .btn__modal-decision.ok').addEventListener('click', () => {
-    let name = document.querySelector('.discard__modal .name__block-input').value;
-    let article = document.querySelector('.discard__modal .article__block-input').value;
-    let count = document.querySelector('.discard__modal .count__block-input').value;
-    let units = document.querySelector('.discard__modal .select-units-title').innerText;
-    let reason = document.querySelector('.discard__modal .modal-reason-title').innerText;
 
-    let modalContent = {
-        'Наименование': name,
-        'Артикул': article,
-        'count': count,
-        'Единицы': units,
-        'Причина списания': reason,
-        'id': idSave
+    document.querySelector('.discard__modal').addEventListener('submit', (event) => {
+        event.preventDefault();
+    })
+    let name = document.querySelector('.discard__modal .name__block-input');
+    let article = document.querySelector('.discard__modal .article__block-input');
+    let count = document.querySelector('.discard__modal .count__block-input');
+    let units = document.querySelector('.discard__modal .select-units-title');
+    let reason = document.querySelector('.discard__modal .modal-reason-title');
+
+    if (name.value !== '' && article.value !== '' && count.value !== '' && units.innerText !== '' && reason.innerText !== '') {
+        console.log(name.validity);
+        let modalContent = {
+            'Наименование': name.value,
+            'Артикул': article.value,
+            'count': count.value,
+            'Единицы': units.innerText,
+            'Причина списания': reason.innerText,
+            'id': idSave
+        }
+        console.log(modalContent);
+        postUsers(modalContent, '/storage_list').then((data) => {
+            fillTable(data[0]);
+            viewPopup(data[1], '.discard__modal');
+        });
     }
-    console.log(modalContent);
-    postUsers(modalContent, '/storage_list').then((data) => {
-        fillTable(data[0]);
-        viewPopup(data[1], '.discard__modal');
-    });
 });
 //------ //событие нажатия на кнопку 'ОК' в модалке списания ------
 
