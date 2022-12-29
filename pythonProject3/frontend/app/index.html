@@ -61,9 +61,15 @@
                 <p>Списание товара</p>
                 <div class="modal-main">
                   <div class="input__block name__block" data-input="name">
-                    <p>Наименование</p>
+                    <div class="input__block-label">
+                      <p>Наименование</p>
+                      <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                      </svg>
+                      <span style="width: 220px;">Можно выбрать из списка или ввести самому.<br>Формат ввода: произвольный</span>
+                    </div>
                     <input class="input__block-input name__block-input" type="text" required/>
-                    <svg width="10" height="8" viewBox="0 0 8 6">
+                    <svg class="input-arrow" width="10" height="8" viewBox="0 0 8 6">
                       <g>
                         <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
                       </g>
@@ -72,13 +78,19 @@
                   </div>
                   <div class="middle__block">
                     <div class="input__block article__block" data-input="code">
-                      <p>Артикул</p>
+                      <div class="input__block-label">
+                        <p>Артикул</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span style="width: 190px;">Формат ввода: XXXX-XX<br>X - число</span>
+                      </div>
                       <input class="input__block-input article__block-input" type="text" pattern="\d{4}-\d{2}" required/>
                       <ul class="input__block-results"></ul>
                     </div>
                     <div class="type__block">
                       <p>Единицы</p>
-                      <div class="__select select-reason select-type" data-state="">
+                      <div class="__select select-reason" data-state="">
                         <div class="__select__title select-reason-title select-type-title select-units-title" data-default="Option 0">шт</div>
                         <div class="__select__content select-reason-content select-type-content">
                           <label class="__select__label select-reason-label select-type-label">шт
@@ -99,8 +111,14 @@
                       </div>
                     </div>
                     <div class="input__block count__block" data-input="count">
-                      <p>Количество</p>
-                      <input class="article__block-input input__block-input count__block-input" type="text" required/>
+                      <div class="input__block-label">
+                        <p>Количество</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span>Формат ввода: целочисленный</span>
+                      </div>
+                      <input class="article__block-input input__block-input count__block-input" type="text" pattern="^[0-9]+$" required/>
                       <ul class="input__block-results"></ul>
                     </div>
                   </div>
@@ -145,9 +163,15 @@
                 <p>Переоценить товар</p>
                 <div class="modal-main">
                   <div class="input__block name__block" data-input="name">
-                    <p>Наименование</p>
+                    <div class="input__block-label">
+                      <p>Наименование</p>
+                      <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                      </svg>
+                      <span style="width: 220px;">Можно выбрать из списка или ввести самому.<br>Формат ввода: произвольный</span>
+                    </div>
                     <input class="input__block-input name__block-input" type="text" required/>
-                    <svg width="10" height="8" viewBox="0 0 8 6">
+                    <svg class="input-arrow" width="10" height="8" viewBox="0 0 8 6">
                       <g>
                         <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
                       </g>
@@ -156,13 +180,19 @@
                   </div>
                   <div class="middle__block">
                     <div class="input__block article__block" data-input="code">
-                      <p>Артикул</p>
-                      <input class="input__block-input article__block-input" type="text" required/>
+                      <div class="input__block-label">
+                        <p>Артикул</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span style="width: 190px;">Формат ввода: XXXX-XX<br>X - число</span>
+                      </div>
+                      <input class="input__block-input article__block-input" type="text" pattern="\d{4}-\d{2}" required/>
                       <ul class="input__block-results"></ul>
                     </div>
                     <div class="type__block">
                       <p>Единицы</p>
-                      <div class="__select select-reason select-type" data-state="">
+                      <div class="__select select-reason" data-state="">
                         <div class="__select__title select-reason-title select-type-title select-units-title" data-default="Option 0">шт</div>
                         <div class="__select__content select-reason-content select-type-content">
                           <label class="__select__label select-reason-label select-type-label">шт
@@ -194,8 +224,14 @@
                       <input class="input__block-input old__price-input" type="text" required/>
                     </div>
                     <div class="input__block newPrice__block" data-input="newPrice">
-                      <p>Новая цена</p>
-                      <input class="input__block-input new__price-input" type="text" required/>
+                      <div class="input__block-label">
+                        <p>Новая цена</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span>Формат ввода: целочисленный</span>
+                      </div>
+                      <input class="input__block-input new__price-input" type="text" pattern="^[0-9]+$" required/>
                     </div>
                   </div>
                   <div class="modal-decision">
@@ -208,19 +244,31 @@
                 <p>Создать товар</p>
                 <div class="modal-main">
                   <div class="input__block name__block" data-input="name">
-                    <p>Наименование</p>
+                    <div class="input__block-label">
+                      <p>Наименование</p>
+                      <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                      </svg>
+                      <span style="width: 220px;">Формат ввода: произвольный</span>
+                    </div>
                     <input class="input__block-input name__block-input" type="text" required/>
                     <ul class="input__block-results" style="display: none;"></ul>
                   </div>
                   <div class="middle__block">
                     <div class="input__block article__block" data-input="code">
-                      <p>Артикул</p>
-                      <input class="input__block-input article__block-input" type="text" required/>
+                      <div class="input__block-label">
+                        <p>Артикул</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span style="width: 190px;">Формат ввода: XXXX-XX<br>X - число</span>
+                      </div>
+                      <input class="input__block-input article__block-input" type="text" pattern="\d{4}-\d{2}" required/>
                       <ul class="input__block-results"></ul>
                     </div>
                     <div class="type__block">
                       <p>Единицы</p>
-                      <div class="__select select-reason select-type" data-state="">
+                      <div class="__select select-reason" data-state="">
                         <div class="__select__title select-reason-title select-type-title select-units-title" data-default="Option 0">шт</div>
                         <div class="__select__content select-reason-content select-type-content">
                           <label class="__select__label select-reason-label select-type-label">шт
@@ -243,12 +291,24 @@
                   </div>
                   <div class="price__block">
                     <div class="input__block oldPrice__block" data-input="price_selling">
-                      <p>Закупка за ед.</p>
-                      <input class="input__block-input old__price-input" type="text" required/>
+                      <div class="input__block-label">
+                        <p>Закупка за ед.</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span>Формат ввода: целочисленный</span>
+                      </div>
+                      <input class="input__block-input old__price-input" type="text" pattern="^[0-9]+$" required/>
                     </div>
                     <div class="input__block newPrice__block" data-input="newPrice">
-                      <p>Реализация за ед.</p>
-                      <input class="input__block-input new__price-input" type="text" required/>
+                      <div class="input__block-label">
+                        <p>Реализация за ед.</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span>Формат ввода: целочисленный</span>
+                      </div>
+                      <input class="input__block-input new__price-input" type="text" pattern="^[0-9]+$" required/>
                     </div>
                   </div>
                   <div class="modal-decision">

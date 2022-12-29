@@ -277,12 +277,19 @@ a {
 .dashboard .modal.overrate__modal {
   left: 205px;
 }
+.dashboard .modal.overrate__modal .oldPrice__block, .dashboard .modal.overrate__modal .newPrice__block {
+  margin-bottom: 0;
+}
 .dashboard .modal.createProduct__modal {
   left: 410px;
-  width: 400px;
+  width: 450px;
 }
 .dashboard .modal.createProduct__modal .oldPrice__block, .dashboard .modal.createProduct__modal .newPrice__block {
-  width: 150px;
+  margin-bottom: 0;
+}
+.dashboard .modal.createProduct__modal .middle__block {
+  -ms-grid-columns: (1fr)[2];
+  grid-template-columns: repeat(2, 1fr);
 }
 .dashboard .modal__popup {
   position: absolute;

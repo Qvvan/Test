@@ -37,8 +37,8 @@ getUsers('/storage_list')
             let saveDataStrings;
             
             //------ выпадающий список в Инпуте name --------
-            if (el.querySelector('svg')) {
-                el.querySelector('svg').addEventListener('click', function(e) {
+            if (el.querySelector('.input-arrow')) {
+                el.querySelector('.input-arrow').addEventListener('click', function(e) {
                     if (inputResults.style.display == 'block') {
                         inputResults.innerHTML = "";
                         inputResults.style.display = 'none'
@@ -142,7 +142,7 @@ document.querySelector('.discard__modal .btn__modal-decision.ok').addEventListen
     let units = document.querySelector('.discard__modal .select-units-title');
     let reason = document.querySelector('.discard__modal .modal-reason-title');
 
-    if (name.value !== '' && article.value !== '' && count.value !== '' && units.innerText !== '' && reason.innerText !== '') {
+    if ((name.value !== '') && (article.value !== '') && (count.value !== '') && (units.innerText !== '') && (reason.innerText !== '')) {
         console.log(name.validity);
         let modalContent = {
             'Наименование': name.value,

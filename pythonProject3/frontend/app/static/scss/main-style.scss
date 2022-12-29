@@ -242,12 +242,18 @@ a {
     }
     &.overrate__modal {
       left: 205px;
+      .oldPrice__block, .newPrice__block {
+        margin-bottom: 0;
+      }
     }
     &.createProduct__modal {
       left: 410px;
-      width: 400px;
+      width: 450px;
       .oldPrice__block, .newPrice__block {
-        width: 150px;
+        margin-bottom: 0;
+      }
+      .middle__block {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
     &__popup {

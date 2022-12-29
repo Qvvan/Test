@@ -203,7 +203,7 @@ label:has(.__select__input:disabled) {
   font-family: "Comfortaa", sans-serif;
   font-weight: 400;
   font-size: 14px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .input__block {
@@ -235,35 +235,72 @@ label:has(.__select__input:disabled) {
 .input__block-input:required:invalid {
   border-bottom: 1px solid rgba(212, 57, 30, 0.7294117647);
 }
-
-.middle__block {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.input__block-label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  margin-bottom: 10px;
+  position: relative;
+}
+.input__block-label span {
+  display: inline-block;
+  position: absolute;
+  left: calc(100% + 15px);
+  z-index: 10;
+  min-width: 100%;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  padding: 10px;
+  font-weight: 400;
+  font-size: 12px;
+  font-family: "Comfortaa", sans-serif;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #cacaca;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.input__block-label p {
+  margin: 0;
+}
+.input__block-label svg {
+  margin-left: 15px;
+}
+.input__block-label svg:hover + span {
+  opacity: 1;
+}
+
+.middle__block {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 15px;
 }
 
 .middle__block .input__block {
   margin: 0;
-  width: 150px;
+  width: 100%;
 }
 
 .price__block {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 20px 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .input__block-results {
@@ -328,7 +365,7 @@ label:has(.__select__input:disabled) {
   font-weight: 400;
 }
 
-.name__block svg {
+.name__block input + svg {
   position: absolute;
   right: 10px;
   bottom: 8px;
