@@ -163,41 +163,55 @@ document.querySelector('.discard__modal .btn__modal-decision.ok').addEventListen
 
 //------ событие нажатия на кнопку 'ОК' в модалке переоценки ------
 document.querySelector('.overrate__modal .btn__modal-decision.ok').addEventListener('click', () => {
+    document.querySelector('.overrate__modal').addEventListener('submit', (event) => {
+        event.preventDefault();
+    })
+    let name = document.querySelector('.overrate__modal .name__block-input').value;
+    let article = document.querySelector('.overrate__modal .article__block-input').value;
+    let count = document.querySelector('.overrate__modal .count__block-input').value;
+    let units = document.querySelector('.overrate__modal .select-units-title').innerText;
+    let old__price = document.querySelector('.overrate__modal  old__price-input').value;
     let new__price = document.querySelector('.overrate__modal .new__price-input').value;
 
-    let modalContent = {
-        'Новая цена': new__price,
-        'id': idSave
+    if ((name !== '') && (article !== '') && (count !== '') && (units !== '') && (old__price !== '') && (new__price !== '')) {
+        let modalContent = {
+            'Новая цена': new__price,
+            'id': idSave
+        }
+        console.log(modalContent);
+        postUsers(modalContent, '/overrate').then((data) => {
+            fillTable(data[0]);
+            viewPopup(data[1], '.overrate__modal');
+        });
     }
-    console.log(modalContent);
-    postUsers(modalContent, '/overrate').then((data) => {
-        fillTable(data[0]);
-        viewPopup(data[1], '.overrate__modal');
-    });
 });
 //------ //событие нажатия на кнопку 'ОК' в модалке переоценки ------
 
 //------ событие нажатия на кнопку 'ОК' в модалке создания товара ------
 document.querySelector('.createProduct__modal .btn__modal-decision.ok').addEventListener('click', () => {
-
+    document.querySelector('.createProduct__modal').addEventListener('submit', (event) => {
+        event.preventDefault();
+    })
     let name = document.querySelector('.createProduct__modal .name__block-input').value;
     let article = document.querySelector('.createProduct__modal .article__block-input').value;
     let units = document.querySelector('.createProduct__modal .select-units-title').innerText;
     let price_purchase = document.querySelector('.createProduct__modal .old__price-input').value;
     let price_selling = document.querySelector('.createProduct__modal .new__price-input').value;
 
-    let modalContent = {
-        'name': name,
-        'article': article,
-        'units': units,
-        'price_purchase': price_purchase,
-        'price_selling': price_selling
+    if ((name !== '') && (article !== '') && (price_purchase !== '') && (units !== '') && (price_selling !== '')) {
+        let modalContent = {
+            'name': name,
+            'article': article,
+            'units': units,
+            'price_purchase': price_purchase,
+            'price_selling': price_selling
+        }
+    
+        console.log(modalContent);
+        postUsers(modalContent, '/add').then((data) => {
+            console.log(data);
+            viewPopup(data, '.createProduct__modal');
+        });
     }
-
-    console.log(modalContent);
-    postUsers(modalContent, '/add').then((data) => {
-        console.log(data);
-        viewPopup(data, '.createProduct__modal');
-    });
 });
 //------ //событие нажатия на кнопку 'ОК' в модалке создания товара ------
