@@ -21,10 +21,11 @@ export const postUsers = async (content, url) => {
     return data;
 }
 let idSave;
-
+let asddd;
 //----- GET запрос при загрузке страницы ----
 getUsers('/storage_list')
     .then((data) => {
+        asddd = data;
         //----- заполнение таблицы значениями из запроса ----
         fillTable(data);
         //----- //заполнение при загрузке страницы таблицы значениями из сервера ----
@@ -215,3 +216,5 @@ document.querySelector('.createProduct__modal .btn__modal-decision.ok').addEvent
     }
 });
 //------ //событие нажатия на кнопку 'ОК' в модалке создания товара ------
+
+console.log(asddd);
