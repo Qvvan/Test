@@ -175,19 +175,6 @@ const htmlInclude = () => {
     .pipe(browserSync.stream());
 }
 
-const webserver = () => {
-  browserSync.init(
-    {
-      server: {
-        baseDir: './assets/build'
-      },
-      notify: false,
-      host: '127.0.0.2',
-      port: "5000"
-    }
-  )
-};
-
 const runServer = () => {
   var proc = exec('venv\\Scripts\\activate.bat && '+ 'python backend/main.py runserver')
   proc.stderr.on('data', function(data) {
@@ -200,19 +187,12 @@ const runServer = () => {
 };
 
 const watchFiles = () => {
-  runServer(),
   browserSync.init({
-      server: {
-        baseDir: './assets/build'
-      },
-      host: '127.0.0.1',
-      // proxy: {
-      //   target: "127.0.0.1:5000",
-      // },
+      proxy: "127.0.0.1:5000",
       port: "5000",
-      open: true,
       notify: false
-  })
+  }, runServer())
+  
   watch(paths.srcScss, styles);
   watch(paths.srcFullJs, scripts);
   watch(`${paths.srcPartialsFolder}/*.html`, htmlInclude);
