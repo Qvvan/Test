@@ -205,12 +205,12 @@ const watchFiles = () => {
       server: {
         baseDir: './assets/build'
       },
-      host: '127.0.0.2',
+      host: '127.0.0.1',
+      // proxy: {
+      //   target: "127.0.0.1:5000",
+      // },
       port: "5000",
-      open: "external",
-      socket: {
-        domain: "127.0.0.2:5000"
-      },
+      open: true,
       notify: false
   })
   watch(paths.srcScss, styles);

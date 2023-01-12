@@ -393,11 +393,45 @@ a {
 .dashboard .dashboard__search-input:focus {
   outline: none;
 }
-.dashboard .dashboard__search div {
+.dashboard .dashboard__search > div {
   border-radius: 10px;
   background: #D9D9D9;
   width: 300px;
   height: 28px;
+  position: relative;
+}
+.dashboard .dashboard__search .search__results {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  top: calc(100% + 5px);
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #e9e9e9;
+  overflow: hidden;
+}
+.dashboard .dashboard__search .search__results li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 10px;
+  list-style: none;
+  cursor: pointer;
+  height: 24px;
+  border: #000;
+  background: transparent;
+}
+.dashboard .dashboard__search .search__results li:hover {
+  background: #e9e9e9;
 }
 .dashboard .dashboard__main {
   display: -webkit-box;

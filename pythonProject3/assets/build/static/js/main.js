@@ -190,6 +190,42 @@ getUsers('/storage_list').then(data => {
   (0,_functions_js__WEBPACK_IMPORTED_MODULE_0__.fillTable)(data);
   //----- //заполнение при загрузке страницы таблицы значениями из сервера ----
 
+  //----------функция поиска на странице
+  document.querySelectorAll('.dashboard__search').forEach(function (el) {
+    el.querySelector('.dashboard__search-input').addEventListener('input', function (event) {
+      let inputResults = document.querySelector('.search__results');
+      inputResults.innerHTML = "";
+      let search_item = event.target.value.toLowerCase();
+      console.log(search_item);
+      let aaa = data.filter(item => {
+        return item.name.toString().toLowerCase().includes(search_item) || item.code.toString().toLowerCase().includes(search_item);
+      });
+      aaa.forEach(elem => {
+        if (elem.name.toString().toLowerCase().includes(search_item)) {
+          const li = document.createElement('li');
+          li.innerHTML = `<span>${elem.name}</span>`;
+          inputResults.appendChild(li);
+        }
+        if (elem.code.toString().toLowerCase().includes(search_item)) {
+          const li = document.createElement('li');
+          li.innerHTML = `<span>${elem.code}</span>`;
+          inputResults.appendChild(li);
+        }
+      });
+      if (search_item == '') {
+        inputResults.innerHTML = "";
+        inputResults.style.display = 'none';
+      } else if (inputResults.contains(el.querySelector('.search__results li'))) {
+        inputResults.style.display = 'block';
+      } else {
+        inputResults.style.display = 'none';
+      }
+      console.log(aaa);
+    });
+  });
+
+  //--------//функция поиска на странице
+
   //----- live search -----
   document.querySelectorAll('.name__block, .article__block').forEach(el => {
     let inputResults = el.querySelector('.input__block-results');
@@ -367,8 +403,6 @@ document.querySelector('.createProduct__modal .btn__modal-decision.ok').addEvent
   }
 });
 //------ //событие нажатия на кнопку 'ОК' в модалке создания товара ------
-
-console.log(asddd);
 
 /***/ }),
 
