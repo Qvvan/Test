@@ -360,7 +360,13 @@ a {
   background: transparent;
   border: none;
 }
-.dashboard .dashboard__search-button svg {
+.dashboard .dashboard__search-button.searching > svg {
+  display: none;
+}
+.dashboard .dashboard__search-button.searching svg + svg {
+  display: block;
+}
+.dashboard .dashboard__search-button > svg {
   position: absolute;
   right: 10px;
   top: 50%;
@@ -368,6 +374,9 @@ a {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   cursor: pointer;
+}
+.dashboard .dashboard__search-button svg + svg {
+  display: none;
 }
 .dashboard .dashboard__search-input {
   position: absolute;
@@ -427,11 +436,13 @@ a {
   list-style: none;
   cursor: pointer;
   height: 24px;
-  border: #000;
   background: transparent;
 }
 .dashboard .dashboard__search .search__results li:hover {
   background: #e9e9e9;
+}
+.dashboard .dashboard__search .search__results li:not(:last-child) {
+  border-bottom: 1px solid #e9e9e9;
 }
 .dashboard .dashboard__main {
   display: -webkit-box;

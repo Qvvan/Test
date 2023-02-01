@@ -177,21 +177,15 @@ const htmlInclude = () => {
 
 const runServer = () => {
   var proc = exec('venv\\Scripts\\activate.bat && '+ 'python backend/main.py runserver')
-  proc.stderr.on('data', function(data) {
-    process.stdout.write(data);
-  });
-
-  proc.stdout.on('data', function(data) {
-    process.stdout.write(data);
-  });
 };
 
 const watchFiles = () => {
+  runServer()
   browserSync.init({
       proxy: "127.0.0.1:5000",
       port: "5000",
       notify: false
-  }, runServer())
+  })
   
   watch(paths.srcScss, styles);
   watch(paths.srcFullJs, scripts);
@@ -218,3 +212,5 @@ const toProd = (done) => {
 exports.default = series(clean, htmlInclude, scripts, styles, resources, images, svgSprites, watchFiles);
 
 exports.build = series(toProd, clean, htmlInclude, scripts, styles, resources, images, svgSprites, htmlMinify);
+
+

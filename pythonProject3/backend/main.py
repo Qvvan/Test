@@ -5,7 +5,6 @@ from cashbox import cashbox
 
 app = Flask(__name__, template_folder='../assets/build', static_folder='../assets/build/static')
 
-
 app.register_blueprint(cashbox, url_prefix = '/cashbox')
 def connect_db():
     """Соединяемся с БД"""

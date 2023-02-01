@@ -32,17 +32,21 @@ getUsers('/storage_list')
 
         //----------функция поиска на странице
         document.querySelectorAll('.dashboard__search').forEach(function (el) {
-            el.querySelector('.dashboard__search-input').addEventListener('input', function(event) {
-                let inputResults = document.querySelector('.search__results');
+            let resultList;
+            let search_item
+            let inputResults = el.querySelector('.search__results');
+            let input = el.querySelector('.dashboard__search-input');
+            input.addEventListener('input', function(event) {
                 inputResults.innerHTML = "";
-    
-                let search_item = event.target.value.toLowerCase();
-                console.log(search_item);
-                let aaa = data.filter((item) => {
+                el.querySelector('.dashboard__search-button').classList.remove('searching');
+                search_item = event.target.value.toLowerCase();
+
+                resultList = data.filter((item) => {
                     return item.name.toString().toLowerCase().includes(search_item) || 
                         item.code.toString().toLowerCase().includes(search_item);
                 })
-                aaa.forEach((elem) => {
+ 
+                resultList.forEach((elem) => {
                     if (elem.name.toString().toLowerCase().includes(search_item)) {
                         const li = document.createElement('li');
                         li.innerHTML = `<span>${elem.name}</span>`;
@@ -54,16 +58,46 @@ getUsers('/storage_list')
                         inputResults.appendChild(li);
                     }
                 });
+
                 if (search_item == '') {
-                    inputResults.innerHTML = "";
+                    inputResults.innerHTML = '';
                     inputResults.style.display = 'none';
                 } else 
-                if (inputResults.contains(el.querySelector('.search__results li'))) {
+                if (inputResults.contains(el.querySelector('li'))) {
                     inputResults.style.display = 'block';
                 } else {
                     inputResults.style.display = 'none';
                 }
-                console.log(aaa);
+                
+                el.querySelectorAll('li').forEach((elem, index) => {
+                    elem.addEventListener('click', function() {
+                        let asd = resultList.filter(element => {
+                            if (element === resultList[index]) {
+                                return element
+                            }
+                        })
+                        inputResults.innerHTML = '';
+                        inputResults.style.display = 'none';
+
+                        fillTable(asd);
+                        el.querySelector('.dashboard__search-button').classList.add('searching');
+                    })
+                })
+            })
+        
+            el.querySelector('.dashboard__search-button').addEventListener('click', function(event) {
+                if (this.classList.contains('searching')) {
+                    this.classList.remove('searching');
+                    input.value = '';
+                    fillTable(data);
+                } else {
+                    if (resultList) {
+                        this.classList.add('searching')
+                        fillTable(resultList);
+                        inputResults.innerHTML = '';
+                        inputResults.style.display = 'none';
+                    }
+                }
             })
         })
         

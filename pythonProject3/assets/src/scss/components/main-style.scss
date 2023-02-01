@@ -304,13 +304,24 @@ a {
     &-button {
       background: transparent;
       border: none;
-    }
-    &-button svg {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
+      &.searching {
+        & > svg {
+          display: none;
+        }
+        & svg + svg {
+          display: block;
+        }
+      }
+      & > svg {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+      & svg + svg {
+        display: none;
+      }
     }
     &-input {
       position: absolute;
@@ -359,10 +370,12 @@ a {
         list-style: none;
         cursor: pointer;
         height: 24px;
-        border: #000;
         background: transparent;
         &:hover {
           background: #e9e9e9;
+        }
+        &:not(:last-child) {
+          border-bottom: 1px solid #e9e9e9;
         }
       }
     }
