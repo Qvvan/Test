@@ -8,7 +8,7 @@ app = Flask(__name__, template_folder='../assets/build', static_folder='../asset
 app.register_blueprint(cashbox, url_prefix = '/cashbox')
 def connect_db():
     """Соединяемся с БД"""
-    conn = psycopg2.connect(dbname='test_market_db', user='postgres', password='123', host='localhost', port='5432')
+    conn = psycopg2.connect(dbname='market', user='postgres', password='123', host='localhost', port='5432')
     return conn
 
 def get_db():

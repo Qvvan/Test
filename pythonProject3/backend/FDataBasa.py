@@ -31,6 +31,7 @@ class FDataBase:
                     f"'price_purchase', p.price_purchase , 'price_selling', p.price_selling) ORDER BY p{'m.' + self.__column if self.__column == 'count' else '.' + self.__column} {self.__order})" \
                     "FROM public.product_market as pm JOIN public.product p ON pm.product_id = p.id;"
         try:
+            print(quest)
             self.__cursor.execute(quest)
             res = self.__cursor.fetchone()
             if res[0]:
@@ -38,10 +39,6 @@ class FDataBase:
         except:
             print('Ошибка подключения к БД')
         return {}
-
-    def serch(self):
-        quest = 123
-
 
 
     def spisanie(self, response: dict) -> (dict, str):
@@ -60,9 +57,9 @@ class FDataBase:
                         quest = f'UPDATE public.product_market SET count = {int(res) - int(count)} WHERE product_id = {id}'
                         self.__cursor.execute(quest)
                         self.__db.commit()
-                        return self.menu() 
+                        return self.menu(), 'Списание выполнено'
                 except:
-                    return 'Внутреняя ошибка'
+                    return 'Ошибка подключения к Базе данных'
             else:
                 return self.menu(), 'Количетсво введено неверно'
         else:
@@ -105,3 +102,5 @@ class FDataBase:
         except:
             print('Ошибка с базой данных')
             return 'Ошибка с бд'
+            
+
