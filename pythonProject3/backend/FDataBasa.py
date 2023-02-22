@@ -38,6 +38,10 @@ class FDataBase:
             print('Ошибка подключения к БД')
         return {}
 
+    def serch(self):
+        quest = 123
+
+
 
     def spisanie(self, response: dict):
         """Функция списания товара"""
@@ -46,19 +50,26 @@ class FDataBase:
         quest = f'SELECT count FROM public.product_market WHERE product_id = {id}'
         self.__cursor.execute(quest)
         res = self.__cursor.fetchone()[0]
-        if res:
+        if res >= 0:
             if count.isdecimal():
                 try:
                     if int(count) > int(res):
-                        return 'На складе меньше товара, чем вы хотите убрать'
+                        print('На складе меньше товара, чем вы хотите убрать')
+                        return self.menu()
                     else:
                         quest = f'UPDATE public.product_market SET count = {int(res) - int(count)} WHERE product_id = {id}'
                         self.__cursor.execute(quest)
                         self.__db.commit()
+                        print('Обновил')
                         return self.menu()
+
                 except:
+                    print('Внутреняя ошибка')
                     return 'Внутреняя ошибка'
+
             else:
+                print('Количетсво введено неправильно')
                 return 'Количетсво введено неправильно'
         else:
+            print('Товар либо пуст, либо не найден')
             return 'Товар либо пуст, либо не найден'
