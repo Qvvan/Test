@@ -3,8 +3,7 @@ from FDataBasa import FDataBase
 import psycopg2
 from cashbox import cashbox
 
-app = Flask(__name__, template_folder='../frontend/app', static_folder='../frontend/app/static')
-
+app = Flask(__name__, template_folder='../assets/build', static_folder='../assets/build/static')
 
 app.register_blueprint(cashbox, url_prefix = '/cashbox')
 def connect_db():
@@ -37,8 +36,8 @@ def close_db(error):
 def login():
     return render_template('index.html')
 
-@app.route('/add', methods = ['GET', 'POST'])
-def add():
+@app.route('/storage_list', methods = ['GET', 'POST'])
+def storage_list():
     if request.method == 'POST':
         response = request.get_json()
         return jsonify(dbase.spisanie(response))
@@ -47,11 +46,21 @@ def add():
 @app.route('/order', methods = ['POST'])
 def order():
     response = request.get_json()
-    print(response)
     column_ = response['Колонка']
     order_ = response['Сортировка']
     return dbase.order(column_, order_)
 
 
+@app.route('/overrate', methods = ['POST'])
+def overrate():
+    response = request.get_json()
+    return jsonify(dbase.overrate(response))
+
+@app.route('/add', methods = ['POST'])
+def add():
+    response = request.get_json()
+    return jsonify(dbase.add(response))
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='127.0.0.1', port=5000)
