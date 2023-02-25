@@ -1,4 +1,4 @@
-from flask import Blueprint, g
+from flask import Blueprint, g, jsonify, render_template, redirect
 
 cashbox = Blueprint('cashbox', __name__)
 
@@ -16,4 +16,4 @@ def teardown_request(request):
 
 @cashbox.route('/')
 def index():
-    return 'cashbox'
+    return render_template('page1.html')

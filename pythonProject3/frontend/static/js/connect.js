@@ -289,3 +289,23 @@ document.querySelector('.createProduct__modal .btn__modal-decision.ok').addEvent
     }
 });
 //------ //событие нажатия на кнопку 'ОК' в модалке создания товара ------
+
+
+
+document.querySelectorAll('.sidebar-button').forEach((el) => {
+    el.addEventListener('click', function(e) {
+    switch (e.target.textContent){
+    case 'Касса':
+        window.location.href = "/cashbox"
+        break
+    case 'Склад': console.log('Кнопка нажата2')
+        break
+    case 'Статистика': console.log('Кнопка нажата3')
+        break
+    case 'Продажи': console.log('Кнопка нажата4')
+        break
+    default: 'Ничего'
+        break
+    }
+    })
+});

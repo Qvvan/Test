@@ -3,12 +3,12 @@ from FDataBasa import FDataBase
 import psycopg2
 from cashbox import cashbox
 
-app = Flask(__name__, template_folder='../assets/build', static_folder='../assets/build/static')
+app = Flask(__name__, template_folder='../frontend/templates/', static_folder='../frontend/static/')
 
 app.register_blueprint(cashbox, url_prefix = '/cashbox')
 def connect_db():
     """Соединяемся с БД"""
-    conn = psycopg2.connect(dbname='market', user='postgres', password='123', host='localhost', port='5432')
+    conn = psycopg2.connect(dbname='test_market_db', user='postgres', password='123', host='localhost', port='5432')
     return conn
 
 def get_db():
@@ -35,6 +35,7 @@ def close_db(error):
 @app.route('/', methods = ['GET'])
 def login():
     return render_template('index.html')
+
 
 @app.route('/storage_list', methods = ['GET', 'POST'])
 def storage_list():
@@ -63,4 +64,4 @@ def add():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='127.0.0.1', port=5000)
+    app.run(debug=True, host='127.0.0.1')

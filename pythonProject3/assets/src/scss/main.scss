@@ -1,9 +1,0 @@
-// базовые подключения
-@import "vars";
-@import "mixins";
-@import "fonts";
-@import "settings";
-
-// подключения компонентов страницы
-@import "./components/main-style.scss";
-@import "./components/modal-all-select.scss";
