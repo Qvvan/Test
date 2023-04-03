@@ -4,6 +4,7 @@ class FDataBase:
     def __init__(self, db):
         self.__db = db
         self.__cursor = db.cursor()
+        self.__chek = 0
 
     def menu(self) -> dict:
         quest = "SELECT json_agg(json_build_object('id', pm.product_id, 'name', p.name, 'code', p.code, 'unit', p.unit, 'count', pm.count,"\
@@ -102,5 +103,30 @@ class FDataBase:
         except:
             print('Ошибка с базой данных')
             return 'Ошибка с бд'
-            
 
+
+    """Запрос для кассы"""
+    def scan(self, response):
+        quest = f'SELECT * FROM public.product WHERE article = {response["article"]}'
+        try:
+            self.__cursor.execute(quest)
+            res = self.__cursor.fetchone()
+            if res[0]:
+                return res[0], 'Okay'
+        except:
+            print('Ошибка с базой данных')
+            return 'Ошибка бд'
+        return {}
+
+
+    """Собираем всю сумму чека"""
+    def chek(self, value: int):
+        self.__chek += value
+
+
+    """Обнуление чека для нового"""
+    def chekEmpty(self):
+        self.__chek = 0
+
+    def buy(self):
+        self.chekEmpty()

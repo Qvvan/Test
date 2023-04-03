@@ -1164,3 +1164,67 @@ a:hover,
 a:focus {
 		border-bottom: 1px dotted #a2b52d;
 		}
+
+
+.v1_372 {
+  width: 380px;
+  height: 288px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 87px;
+  left: 480px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.v1_373 {
+  width: 93px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 217px;
+  left: 18px;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: center;
+}
+.v1_374 {
+  width: 75px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 22px;
+  left: 18px;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 16px;
+  opacity: 1;
+  text-align: center;
+}
+.v1_375 {
+  width: 94px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 22px;
+  left: 272px;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 16px;
+  opacity: 1;
+  text-align: center;
+}
+.v1_376 {
+  width: 79px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 218px;
+  left: 272px;
+  font-family: Comfortaa;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: center;
+}

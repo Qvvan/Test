@@ -39,6 +39,688 @@
           <div></div>
         </div>
       </div>
+        <div class="right">
+        <div class="dashboard all">
+          <div class="dashboard__header">
+            <div class="dashboard__buttons">
+              <button class="dashboard__single-button discard">Отменить чек</button>
+              <button class="dashboard__single-button overrate">Отложить чек</button>
+              <button class="dashboard__single-button createProduct">Возврат</button>
+                <button class="dashboard__single-button createProduct">Подбор товара</button>
+              <form class="modal discard__modal">
+                <p>Отменить чек</p>
+                <div class="modal-main">
+                  <div class="input__block name__block" data-input="name">
+                    <div class="input__block-label">
+                      <p>Отложить чек</p>
+                      <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                      </svg>
+                      <span style="width: 220px;">Можно выбрать из списка или ввести самому.<br>Формат ввода: произвольный</span>
+                    </div>
+                    <input class="input__block-input name__block-input" type="text" required/>
+                    <svg class="input-arrow" width="10" height="8" viewBox="0 0 8 6">
+                      <g>
+                        <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                      </g>
+                    </svg>
+                    <ul class="input__block-results" style="display: none;"></ul>
+                  </div>
+                  <div class="middle__block">
+                    <div class="input__block article__block" data-input="code">
+                      <div class="input__block-label">
+                        <p>Артикул</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span style="width: 190px;">Формат ввода: XXXX-XX<br>X - число</span>
+                      </div>
+                      <input class="input__block-input article__block-input" type="text" pattern="\d{4}-\d{2}" required/>
+                      <ul class="input__block-results"></ul>
+                    </div>
+                    <div class="type__block">
+                      <p>Единицы</p>
+                      <div class="__select select-reason" data-state="">
+                        <div class="__select__title select-reason-title select-type-title select-units-title" data-default="Option 0">шт</div>
+                        <div class="__select__content select-reason-content select-type-content">
+                          <label class="__select__label select-reason-label select-type-label">шт
+                            <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                          </label>
+                          <label class="__select__label select-reason-label select-type-label">шт
+                            <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                          </label>
+                          <label class="__select__label select-reason-label select-type-label">кг
+                            <input class="__select__input select-reason-input select-type-input" type="radio"/>
+                          </label>
+                        </div>
+                        <svg width="10" height="8" viewBox="0 0 8 6">
+                          <g>
+                            <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="input__block count__block" data-input="count">
+                      <div class="input__block-label">
+                        <p>Количество</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span>Формат ввода: целочисленный</span>
+                      </div>
+                      <input class="article__block-input input__block-input count__block-input" type="text" pattern="^[0-9]+$" required/>
+                      <ul class="input__block-results"></ul>
+                    </div>
+                  </div>
+                  <div class="modal-reason">
+                    <p>Причина списания</p>
+                    <div class="__select select-reason" data-state="">
+                      <div class="__select__title select-reason-title modal-reason-title" data-default="Option 0"></div>
+                      <div class="__select__content select-reason-content">
+                        <label class="__select__label select-reason-label">
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect" checked/>
+                        </label>
+                        <label class="__select__label select-reason-label">Передача товара в другой магазин
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect" checked/>
+                        </label>
+                        <label class="__select__label select-reason-label">Использование имущества в собственной деятельности
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect"/>
+                        </label>
+                        <label class="__select__label select-reason-label">Порча
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect"/>
+                        </label>
+                        <label class="__select__label select-reason-label">Хищение
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect"/>
+                        </label>
+                        <label class="__select__label select-reason-label">Недосдача
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect"/>
+                        </label>
+                      </div>
+                      <svg width="10" height="8" viewBox="0 0 8 6">
+                        <g>
+                          <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="modal-decision">
+                    <button class="btn__modal-decision ok" type="submit">ОК</button>
+                    <button class="btn__modal-decision cancel" type="reset">Отмена</button>
+                  </div>
+                </div>
+              </form>
+              <form class="modal overrate__modal">
+                <p>Переоценить товар</p>
+                <div class="modal-main">
+                  <div class="input__block name__block" data-input="name">
+                    <div class="input__block-label">
+                      <p>Наименование</p>
+                      <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                      </svg>
+                      <span style="width: 220px;">Можно выбрать из списка или ввести самому.<br>Формат ввода: произвольный</span>
+                    </div>
+                    <input class="input__block-input name__block-input" type="text" required/>
+                    <svg class="input-arrow" width="10" height="8" viewBox="0 0 8 6">
+                      <g>
+                        <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                      </g>
+                    </svg>
+                    <ul class="input__block-results" style="display: none;"></ul>
+                  </div>
+                  <div class="middle__block">
+                    <div class="input__block article__block" data-input="code">
+                      <div class="input__block-label">
+                        <p>Артикул</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span style="width: 190px;">Формат ввода: XXXX-XX<br>X - число</span>
+                      </div>
+                      <input class="input__block-input article__block-input" type="text" pattern="\d{4}-\d{2}" required/>
+                      <ul class="input__block-results"></ul>
+                    </div>
+                    <div class="type__block">
+                      <p>Единицы</p>
+                      <div class="__select select-reason" data-state="">
+                        <div class="__select__title select-reason-title select-type-title select-units-title" data-default="Option 0">шт</div>
+                        <div class="__select__content select-reason-content select-type-content">
+                          <label class="__select__label select-reason-label select-type-label">шт
+                            <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                          </label>
+                          <label class="__select__label select-reason-label select-type-label">шт
+                            <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                          </label>
+                          <label class="__select__label select-reason-label select-type-label">кг
+                            <input class="__select__input select-reason-input select-type-input" type="radio"/>
+                          </label>
+                        </div>
+                        <svg width="10" height="8" viewBox="0 0 8 6">
+                          <g>
+                            <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="input__block count__block" data-input="count">
+                      <p>Количество</p>
+                      <input class="article__block-input input__block-input count__block-input" type="text" required/>
+                      <ul class="input__block-results"></ul>
+                    </div>
+                  </div>
+                  <div class="price__block">
+                    <div class="input__block oldPrice__block" data-input="price_selling">
+                      <p>Старая цена</p>
+                      <input class="input__block-input old__price-input" type="text" required/>
+                    </div>
+                    <div class="input__block newPrice__block" data-input="newPrice">
+                      <div class="input__block-label">
+                        <p>Новая цена</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span>Формат ввода: целочисленный</span>
+                      </div>
+                      <input class="input__block-input new__price-input" type="text" pattern="^[0-9]+$" required/>
+                    </div>
+                  </div>
+                  <div class="modal-decision">
+                    <button class="btn__modal-decision ok" type="submit">ОК</button>
+                    <button class="btn__modal-decision cancel" type="reset">Отмена</button>
+                  </div>
+                </div>
+              </form>
+              <form class="modal createProduct__modal">
+                <p>Создать товар</p>
+                <div class="modal-main">
+                  <div class="input__block name__block" data-input="name">
+                    <div class="input__block-label">
+                      <p>Наименование</p>
+                      <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                      </svg>
+                      <span style="width: 220px;">Формат ввода: произвольный</span>
+                    </div>
+                    <input class="input__block-input name__block-input" type="text" required/>
+                    <ul class="input__block-results" style="display: none;"></ul>
+                  </div>
+                  <div class="middle__block">
+                    <div class="input__block article__block" data-input="code">
+                      <div class="input__block-label">
+                        <p>Артикул</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span style="width: 190px;">Формат ввода: XXXX-XX<br>X - число</span>
+                      </div>
+                      <input class="input__block-input article__block-input" type="text" pattern="\d{4}-\d{2}" required/>
+                      <ul class="input__block-results"></ul>
+                    </div>
+                    <div class="type__block">
+                      <p>Единицы</p>
+                      <div class="__select select-reason" data-state="">
+                        <div class="__select__title select-reason-title select-type-title select-units-title" data-default="Option 0">шт</div>
+                        <div class="__select__content select-reason-content select-type-content">
+                          <label class="__select__label select-reason-label select-type-label">шт
+                            <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                          </label>
+                          <label class="__select__label select-reason-label select-type-label">шт
+                            <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                          </label>
+                          <label class="__select__label select-reason-label select-type-label">кг
+                            <input class="__select__input select-reason-input select-type-input" type="radio"/>
+                          </label>
+                        </div>
+                        <svg width="10" height="8" viewBox="0 0 8 6">
+                          <g>
+                            <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="price__block">
+                    <div class="input__block oldPrice__block" data-input="price_selling">
+                      <div class="input__block-label">
+                        <p>Закупка за ед.</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span>Формат ввода: целочисленный</span>
+                      </div>
+                      <input class="input__block-input old__price-input" type="text" pattern="^[0-9]+$" required/>
+                    </div>
+                    <div class="input__block newPrice__block" data-input="newPrice">
+                      <div class="input__block-label">
+                        <p>Реализация за ед.</p>
+                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 12C2.6918 12 0 9.3082 0 6C0 2.6918 2.6918 -4.76837e-07 6 -4.76837e-07C9.3082 -4.76837e-07 12 2.6918 12 6C12 9.3082 9.3082 12 6 12ZM6 11.1C8.82188 11.1 11.1 8.82187 11.1 6C11.1 3.17812 8.82188 0.9 6 0.9C3.17813 0.9 0.9 3.17812 0.9 6C0.9 8.82187 3.17813 11.1 6 11.1ZM6 9C5.66836 9 5.4 8.73164 5.4 8.4C5.4 8.06836 5.66836 7.8 6 7.8C6.33164 7.8 6.6 8.06836 6.6 8.4C6.6 8.73164 6.33164 9 6 9ZM5.99297 6.90586C5.74453 6.90234 5.54648 6.69844 5.55 6.45V3.15C5.54766 2.98828 5.6332 2.83711 5.77266 2.75508C5.91328 2.67305 6.08672 2.67305 6.22734 2.75508C6.3668 2.83711 6.45234 2.98828 6.45 3.15V6.45C6.45117 6.57187 6.4043 6.68906 6.31758 6.77461C6.23203 6.86133 6.11484 6.9082 5.99297 6.90586Z"/>
+                        </svg>
+                        <span>Формат ввода: целочисленный</span>
+                      </div>
+                      <input class="input__block-input new__price-input" type="text" pattern="^[0-9]+$" required/>
+                    </div>
+                  </div>
+                  <div class="modal-decision">
+                    <button class="btn__modal-decision ok" type="submit">ОК</button>
+                    <button class="btn__modal-decision cancel" type="reset">Отмена</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="dashboard__interactive">
+              <div class="dashboard__search">
+                <span>Поиск</span>
+                <div>
+                  <input class="dashboard__search-input" type="text">
+                  <div class="search__results"></div>
+                </div>
+                <button class="dashboard__search-button" type="submit">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.999943 5.79158L1.73012 5.6203L0.999943 5.79158ZM0.999943 3.36622L1.73012 3.5375L0.999943 3.36622ZM7.8771 3.36622L8.60728 3.19495L7.8771 3.36622ZM7.8771 5.79158L7.14691 5.6203L7.8771 5.79158ZM5.6512 8.01748L5.47992 7.2873L5.6512 8.01748ZM3.22584 8.01748L3.39712 7.2873L3.22584 8.01748ZM3.22584 1.14032L3.05456 0.410143L3.22584 1.14032ZM5.6512 1.14032L5.82247 0.410142L5.6512 1.14032ZM8.32929 9.53033C8.62218 9.82322 9.09706 9.82322 9.38995 9.53033C9.68284 9.23744 9.68284 8.76256 9.38995 8.46967L8.32929 9.53033ZM1.73012 5.6203C1.56945 4.93533 1.56945 4.22247 1.73012 3.5375L0.269762 3.19494C0.0562382 4.10523 0.0562382 5.05257 0.269762 5.96286L1.73012 5.6203ZM7.14691 3.5375C7.30759 4.22247 7.30759 4.93533 7.14691 5.6203L8.60728 5.96285C8.8208 5.05257 8.8208 4.10523 8.60728 3.19495L7.14691 3.5375ZM5.47992 7.2873C4.79495 7.44797 4.08209 7.44797 3.39712 7.2873L3.05457 8.74766C3.96485 8.96118 4.91219 8.96118 5.82247 8.74766L5.47992 7.2873ZM3.39712 1.8705C4.08209 1.70983 4.79495 1.70983 5.47992 1.8705L5.82247 0.410142C4.91219 0.196619 3.96485 0.196619 3.05456 0.410143L3.39712 1.8705ZM3.39712 7.2873C2.56998 7.09328 1.92414 6.44744 1.73012 5.6203L0.269762 5.96286C0.593884 7.34464 1.67279 8.42354 3.05457 8.74766L3.39712 7.2873ZM5.82247 8.74766C7.20425 8.42354 8.28316 7.34463 8.60728 5.96285L7.14691 5.6203C6.95289 6.44744 6.30706 7.09328 5.47992 7.2873L5.82247 8.74766ZM5.47992 1.8705C6.30706 2.06452 6.95289 2.71036 7.14691 3.5375L8.60728 3.19495C8.28316 1.81317 7.20425 0.734264 5.82247 0.410142L5.47992 1.8705ZM3.05456 0.410143C1.67279 0.734264 0.593884 1.81317 0.269762 3.19494L1.73012 3.5375C1.92414 2.71036 2.56998 2.06452 3.39712 1.8705L3.05456 0.410143ZM6.70046 7.9015L8.32929 9.53033L9.38995 8.46967L7.76112 6.84084L6.70046 7.9015Z" fill="black" fill-opacity="0.63"/>
+                  </svg>
+                  <svg width="12" height="12" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.29289 16.2929C1.90237 16.6834 1.90237 17.3166 2.29289 17.7071C2.68342 18.0976 3.31658 18.0976 3.70711 17.7071L10 11.4142L16.2929 17.7071C16.6834 18.0976 17.3166 18.0976 17.7071 17.7071C18.0976 17.3166 18.0976 16.6834 17.7071 16.2929L11.4142 10L17.7071 3.70711C18.0976 3.31658 18.0976 2.68342 17.7071 2.29289C17.3166 1.90237 16.6834 1.90237 16.2929 2.29289L10 8.58579L3.70711 2.2929C3.31658 1.90237 2.68342 1.90237 2.29289 2.2929C1.90237 2.68342 1.90237 3.31658 2.29289 3.70711L8.58579 10L2.29289 16.2929Z" fill="#27272A"/>
+                  </svg>
+
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard__main">
+            <div class="table">
+              <div class="table__header">
+                <span class="asd">№</span>
+                <span class="asd">Наименование
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Артикул
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Единица
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Количество
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Закупка
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Реализация
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="table__body"></div>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard shipment">
+          <div class="dashboard__header">
+            <div class="dashboard__buttons">
+              <button class="dashboard__single-button discard">Списание товара</button>
+              <button class="dashboard__single-button overrate">Отложить чек</button>
+              <button class="dashboard__single-button createProduct">Возврат</button>
+              <div class="modal discard__modal">
+                <p>Списание товара</p>
+                <div class="modal-main">
+                  <div class="input__block name__block" data-input="name">
+                    <p>Наименование</p>
+                    <input class="input__block-input name__block-input" type="text"/>
+                    <svg width="10" height="8" viewBox="0 0 8 6">
+                      <g>
+                        <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                      </g>
+                    </svg>
+                    <ul class="input__block-results" style="display: none;"></ul>
+                  </div>
+                  <div class="middle__block">
+                    <div class="input__block article__block" data-input="code">
+                      <p>Артикул</p>
+                      <input class="input__block-input article__block-input" type="text"/>
+                      <ul class="input__block-results"></ul>
+                    </div>
+                    <div class="type__block">
+                      <p>Единицы</p>
+                      <div class="__select select-reason select-type" data-state="">
+                        <div class="__select__title select-reason-title select-type-title select-units-title" data-default="Option 0">шт</div>
+                        <div class="__select__content select-reason-content select-type-content">
+                          <label class="__select__label select-reason-label select-type-label">шт
+                            <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                          </label>
+                          <label class="__select__label select-reason-label select-type-label">шт
+                            <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                          </label>
+                          <label class="__select__label select-reason-label select-type-label">кг
+                            <input class="__select__input select-reason-input select-type-input" type="radio"/>
+                          </label>
+                        </div>
+                        <svg width="10" height="8" viewBox="0 0 8 6">
+                          <g>
+                            <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="input__block count__block" data-input="count">
+                      <p>Количество</p>
+                      <input class="article__block-input input__block-input count__block-input" type="text"/>
+                      <ul class="input__block-results"></ul>
+                    </div>
+                  </div>
+                  <div class="modal-reason">
+                    <p>Причина списания</p>
+                    <div class="__select select-reason" data-state="">
+                      <div class="__select__title select-reason-title modal-reason-title" data-default="Option 0"></div>
+                      <div class="__select__content select-reason-content">
+                        <label class="__select__label select-reason-label">
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect" checked/>
+                        </label>
+                        <label class="__select__label select-reason-label">Передача товара в другой магазин
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect" checked/>
+                        </label>
+                        <label class="__select__label select-reason-label">Использование имущества в собственной деятельности
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect"/>
+                        </label>
+                        <label class="__select__label select-reason-label">Порча
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect"/>
+                        </label>
+                        <label class="__select__label select-reason-label">Хищение
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect"/>
+                        </label>
+                        <label class="__select__label select-reason-label">Недосдача
+                          <input class="__select__input select-reason-input" type="radio" name="singleSelect"/>
+                        </label>
+                      </div>
+                      <svg width="10" height="8" viewBox="0 0 8 6">
+                        <g>
+                          <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="modal-decision">
+                    <button class="btn__modal-decision ok" type="submit">ОК</button>
+                    <button class="btn__modal-decision cancel" type="reset">Отмена</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal overrate__modal">
+                <p>Возврат</p>
+                <div class="modal-main">
+                  <div class="input__block name__block" data-input="name">
+                    <p>Наименование</p>
+                    <input class="input__block-input name__block-input" type="text"/>
+                    <svg width="10" height="8" viewBox="0 0 8 6">
+                      <g>
+                        <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                      </g>
+                    </svg>
+                    <ul class="input__block-results" style="display: none;"></ul>
+                  </div>
+                  <div class="middle__block">
+                    <div class="input__block article__block" data-input="code">
+                      <p>Артикул</p>
+                      <input class="input__block-input article__block-input" type="text"/>
+                      <ul class="input__block-results"></ul>
+                    </div>
+                    <div class="type__block">
+                      <p>Единицы</p>
+                      <div class="__select select-reason select-type" data-state="">
+                        <div class="__select__title select-reason-title select-type-title select-units-title" data-default="Option 0">шт</div>
+                        <div class="__select__content select-reason-content select-type-content">
+                          <label class="__select__label select-reason-label select-type-label">шт
+                            <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                          </label>
+                          <label class="__select__label select-reason-label select-type-label">шт
+                            <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                          </label>
+                          <label class="__select__label select-reason-label select-type-label">кг
+                            <input class="__select__input select-reason-input select-type-input" type="radio"/>
+                          </label>
+                        </div>
+                        <svg width="10" height="8" viewBox="0 0 8 6">
+                          <g>
+                            <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="input__block count__block" data-input="count">
+                      <p>Количество</p>
+                      <input class="article__block-input input__block-input count__block-input" type="text"/>
+                      <ul class="input__block-results"></ul>
+                    </div>
+                  </div>
+                  <div class="price__block">
+                    <div class="input__block oldPrice__block" data-input="price_selling">
+                      <p>Старая цена</p>
+                      <input class="input__block-input old__price-input" type="text"/>
+                    </div>
+                    <div class="input__block newPrice__block" data-input="newPrice">
+                      <p>Новая цена</p>
+                      <input class="input__block-input new__price-input" type="text"/>
+                    </div>
+                  </div>
+                  <div class="modal-decision">
+                    <button class="btn__modal-decision ok" type="submit">ОК</button>
+                    <button class="btn__modal-decision cancel" type="reset">Отмена</button>
+                  </div>
+                </div>
+              </div>
+              <div class="modal createProduct__modal">
+                <p>Чек</p>
+                <div class="modal-main">
+                  <div class="input__block name__block" data-input="name">
+                    <p>Наименование</p>
+                    <input class="input__block-input name__block-input" type="text"/>
+                    <ul class="input__block-results" style="display: none;"></ul>
+                  </div>
+                  <div class="middle__block">
+                    <div class="input__block article__block" data-input="code">
+                      <p>Артикул</p>
+                      <input class="input__block-input article__block-input" type="text"/>
+                      <ul class="input__block-results"></ul>
+                    </div>
+                    <div class="type__block">
+                      <p>Единицы</p>
+                      <div class="__select select-reason select-type" data-state="">
+                        <div class="__select__title select-reason-title select-type-title select-units-title" data-default="Option 0">шт</div>
+                        <div class="__select__content select-reason-content select-type-content">
+                          <label class="__select__label select-reason-label select-type-label">шт
+                            <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                          </label>
+                          <label class="__select__label select-reason-label select-type-label">шт
+                            <input class="__select__input select-reason-input select-type-input" type="radio" checked/>
+                          </label>
+                          <label class="__select__label select-reason-label select-type-label">кг
+                            <input class="__select__input select-reason-input select-type-input" type="radio"/>
+                          </label>
+                        </div>
+                        <svg width="10" height="8" viewBox="0 0 8 6">
+                          <g>
+                            <path d="M4 6L-2.75946e-07 -1.78814e-07L8 -1.78814e-07L4 6Z" fill="#D9D9D9"/>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="price__block">
+                    <div class="input__block oldPrice__block" data-input="price_selling">
+                      <p>Закупка за ед.</p>
+                      <input class="input__block-input old__price-input" type="text"/>
+                    </div>
+                    <div class="input__block newPrice__block" data-input="newPrice">
+                      <p>Реализация за ед.</p>
+                      <input class="input__block-input new__price-input" type="text"/>
+                    </div>
+                  </div>
+                  <div class="modal-decision">
+                    <button class="btn__modal-decision ok" type="submit">ОК</button>
+                    <button class="btn__modal-decision cancel" type="reset">Отмена</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard__interactive">
+              <div class="dashboard__search">
+                <span>Поиск</span>
+                <div>
+                  <input class="dashboard__search-input" type="text">
+                </div>
+                <button class="dashboard__search-button" type="submit">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.999943 5.79158L1.73012 5.6203L0.999943 5.79158ZM0.999943 3.36622L1.73012 3.5375L0.999943 3.36622ZM7.8771 3.36622L8.60728 3.19495L7.8771 3.36622ZM7.8771 5.79158L7.14691 5.6203L7.8771 5.79158ZM5.6512 8.01748L5.47992 7.2873L5.6512 8.01748ZM3.22584 8.01748L3.39712 7.2873L3.22584 8.01748ZM3.22584 1.14032L3.05456 0.410143L3.22584 1.14032ZM5.6512 1.14032L5.82247 0.410142L5.6512 1.14032ZM8.32929 9.53033C8.62218 9.82322 9.09706 9.82322 9.38995 9.53033C9.68284 9.23744 9.68284 8.76256 9.38995 8.46967L8.32929 9.53033ZM1.73012 5.6203C1.56945 4.93533 1.56945 4.22247 1.73012 3.5375L0.269762 3.19494C0.0562382 4.10523 0.0562382 5.05257 0.269762 5.96286L1.73012 5.6203ZM7.14691 3.5375C7.30759 4.22247 7.30759 4.93533 7.14691 5.6203L8.60728 5.96285C8.8208 5.05257 8.8208 4.10523 8.60728 3.19495L7.14691 3.5375ZM5.47992 7.2873C4.79495 7.44797 4.08209 7.44797 3.39712 7.2873L3.05457 8.74766C3.96485 8.96118 4.91219 8.96118 5.82247 8.74766L5.47992 7.2873ZM3.39712 1.8705C4.08209 1.70983 4.79495 1.70983 5.47992 1.8705L5.82247 0.410142C4.91219 0.196619 3.96485 0.196619 3.05456 0.410143L3.39712 1.8705ZM3.39712 7.2873C2.56998 7.09328 1.92414 6.44744 1.73012 5.6203L0.269762 5.96286C0.593884 7.34464 1.67279 8.42354 3.05457 8.74766L3.39712 7.2873ZM5.82247 8.74766C7.20425 8.42354 8.28316 7.34463 8.60728 5.96285L7.14691 5.6203C6.95289 6.44744 6.30706 7.09328 5.47992 7.2873L5.82247 8.74766ZM5.47992 1.8705C6.30706 2.06452 6.95289 2.71036 7.14691 3.5375L8.60728 3.19495C8.28316 1.81317 7.20425 0.734264 5.82247 0.410142L5.47992 1.8705ZM3.05456 0.410143C1.67279 0.734264 0.593884 1.81317 0.269762 3.19494L1.73012 3.5375C1.92414 2.71036 2.56998 2.06452 3.39712 1.8705L3.05456 0.410143ZM6.70046 7.9015L8.32929 9.53033L9.38995 8.46967L7.76112 6.84084L6.70046 7.9015Z" fill="black" fill-opacity="0.63"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard__main">
+            <div class="table">
+              <div class="table__header">
+                <span class="asd">№</span>
+                <span class="asd">Наименование
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Артикул
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Единица
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Количество
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Закупка
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Реализация
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="table__body"></div>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard history">
+          <div class="dashboard__header">
+            <div class="dashboard__interactive">
+              <div class="dashboard__search">
+                <span>Поиск</span>
+                <div>
+                  <input class="dashboard__search-input" type="text">
+                </div>
+                <button class="dashboard__search-button" type="submit">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.999943 5.79158L1.73012 5.6203L0.999943 5.79158ZM0.999943 3.36622L1.73012 3.5375L0.999943 3.36622ZM7.8771 3.36622L8.60728 3.19495L7.8771 3.36622ZM7.8771 5.79158L7.14691 5.6203L7.8771 5.79158ZM5.6512 8.01748L5.47992 7.2873L5.6512 8.01748ZM3.22584 8.01748L3.39712 7.2873L3.22584 8.01748ZM3.22584 1.14032L3.05456 0.410143L3.22584 1.14032ZM5.6512 1.14032L5.82247 0.410142L5.6512 1.14032ZM8.32929 9.53033C8.62218 9.82322 9.09706 9.82322 9.38995 9.53033C9.68284 9.23744 9.68284 8.76256 9.38995 8.46967L8.32929 9.53033ZM1.73012 5.6203C1.56945 4.93533 1.56945 4.22247 1.73012 3.5375L0.269762 3.19494C0.0562382 4.10523 0.0562382 5.05257 0.269762 5.96286L1.73012 5.6203ZM7.14691 3.5375C7.30759 4.22247 7.30759 4.93533 7.14691 5.6203L8.60728 5.96285C8.8208 5.05257 8.8208 4.10523 8.60728 3.19495L7.14691 3.5375ZM5.47992 7.2873C4.79495 7.44797 4.08209 7.44797 3.39712 7.2873L3.05457 8.74766C3.96485 8.96118 4.91219 8.96118 5.82247 8.74766L5.47992 7.2873ZM3.39712 1.8705C4.08209 1.70983 4.79495 1.70983 5.47992 1.8705L5.82247 0.410142C4.91219 0.196619 3.96485 0.196619 3.05456 0.410143L3.39712 1.8705ZM3.39712 7.2873C2.56998 7.09328 1.92414 6.44744 1.73012 5.6203L0.269762 5.96286C0.593884 7.34464 1.67279 8.42354 3.05457 8.74766L3.39712 7.2873ZM5.82247 8.74766C7.20425 8.42354 8.28316 7.34463 8.60728 5.96285L7.14691 5.6203C6.95289 6.44744 6.30706 7.09328 5.47992 7.2873L5.82247 8.74766ZM5.47992 1.8705C6.30706 2.06452 6.95289 2.71036 7.14691 3.5375L8.60728 3.19495C8.28316 1.81317 7.20425 0.734264 5.82247 0.410142L5.47992 1.8705ZM3.05456 0.410143C1.67279 0.734264 0.593884 1.81317 0.269762 3.19494L1.73012 3.5375C1.92414 2.71036 2.56998 2.06452 3.39712 1.8705L3.05456 0.410143ZM6.70046 7.9015L8.32929 9.53033L9.38995 8.46967L7.76112 6.84084L6.70046 7.9015Z" fill="black" fill-opacity="0.63"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard__main">
+            <div class="table">
+              <div class="table__header">
+                <span class="asd">№</span>
+                <span class="asd">Наименование
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Артикул
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Единица
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Количество
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Закупка
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="asd">Реализация
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L14 12" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M6 7L18 7" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M10 17L6 17" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="table__body"></div>
+            </div>
+          </div>
+        </div>
+          <!-- <div class="v1_372"><span class="v1_373">Итого:</span><span class="v1_374">Касссир:</span><span class="v1_375">Сан Саныч</span><span class="v1_376">240,00</span></div>
+        -->
+      </div>
     </section>>
         </div>
     </main>>
