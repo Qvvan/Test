@@ -249,7 +249,7 @@ a {
 }
 
 .storage {
-  background: rgba(1, 88, 139, 0.67);
+  background: #553b5d;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1142,7 +1142,6 @@ label:has(.__select__input:disabled) {
   cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
-
 
 
 #wrapper {

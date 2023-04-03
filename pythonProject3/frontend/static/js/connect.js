@@ -298,8 +298,8 @@ document.querySelectorAll('.sidebar-button').forEach((el) => {
     case 'Касса':
         window.location.href = "/cashbox"
         break
-    case 'Склад': console.log('Кнопка нажата2')
-        break
+/*    case 'Склад': window.location.href = "/"
+        break*/
     case 'Статистика': console.log('Кнопка нажата3')
         break
     case 'Продажи': console.log('Кнопка нажата4')

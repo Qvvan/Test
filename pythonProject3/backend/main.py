@@ -17,7 +17,6 @@ def get_db():
         g._database = connect_db()
     return g._database
 
-
 dbase = None
 @app.before_request
 def before_request():
